@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'UTM Flavour';
+    src: url('fonts/UTM-Flavour.eot');
+    src: url('fonts/UTM-Flavour.eot?#iefix') format('embedded-opentype'),
+         url('fonts/UTM-Flavour.woff2') format('woff2'),
+         url('fonts/UTM-Flavour.woff') format('woff'),
+         url('fonts/UTM-Flavour.ttf')  format('truetype'),
+         url('fonts/UTM-Flavour.svg#UTM Flavour') format('svg');
+}

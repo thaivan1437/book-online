@@ -1,0 +1,31 @@
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%;">
+	<tbody>
+		<tr>
+			<td>Bột bánh xèo</td>
+			<td>200 g</td>
+		</tr>
+		<tr>
+			<td>Tôm nướng nguyên con</td>
+			<td>10 con</td>
+		</tr>
+		<tr>
+			<td>Dầu ăn</td>
+			<td>100 g</td>
+		</tr>
+		<tr>
+			<td>Nước mắm</td>
+			<td>100 ml</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<div class="mb-5 d-flex">
+	<div class="step">Bước 1</div>
+	<div class="content">
+		<p>Vỏ bánh</p>
+		<p>- Hòa bột bánh xèo với nước ấm, để bột nghỉ 15 phút, cho 50g hành lá cắt nhỏ vào khuấy đều</p>
+		<p>- Cho nước sôi vào</p>
+	</div>
+</div>

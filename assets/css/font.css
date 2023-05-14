@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('assets/font/opensans-regular/opensans-regular.woff2') format('woff2'),
+         url('assets/font/opensans-regular/opensans-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('assets/font/opensans-bold/opensans-bold.woff2') format('woff2'),
+         url('assets/font/opensans-bold/opensans-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('assets/font/roboto-regular/roboto-regular.eot');
+    src: url('assets/font/roboto-regular/roboto-regular.eot?#iefix') format('embedded-opentype'),
+         url('assets/font/roboto-regular/roboto-regular.woff2') format('woff2'),
+         url('assets/font/roboto-regular/roboto-regular.woff') format('woff'),
+         url('assets/font/roboto-regular/roboto-regular.ttf') format('truetype'),
+         url('assets/font/roboto-regular/roboto-regular.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'utm_flavour';
+    src: url('assets/font/utm_flavour/utm_flavour.woff2') format('woff2'),
+         url('assets/font/utm_flavour/utm_flavour.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UTM Flavour';
+    src: url('assets/font/utm_flav/fonts/UTM-Flavour.eot');
+    src: url('assets/font/utm_flav/fonts/UTM-Flavour.eot?#iefix') format('embedded-opentype'),
+         url('assets/font/utm_flav/fonts/UTM-Flavour.woff2') format('woff2'),
+         url('assets/font/utm_flav/fonts/UTM-Flavour.woff') format('woff'),
+         url('assets/font/utm_flav/fonts/UTM-Flavour.ttf')  format('truetype'),
+         url('assets/font/utm_flav/fonts/UTM-Flavour.svg#UTM Flavour') format('svg');
+}

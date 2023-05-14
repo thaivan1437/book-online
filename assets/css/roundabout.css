@@ -1,0 +1,18 @@
+/* Roundabout Slider---------------------------------------- */
+#roundaboutslider {overflow:hidden;}
+#roundabout-loader {margin:50px auto;background:url(../js/roundabout/loading.gif) 50% 230px no-repeat;/* padding-bottom: 50%; */position: relative;}
+#roundabout-inner {display:none;}
+.roundabout-holder {min-height: 380px;left:50%;margin:0 0 0 -316px;position: relative;width: 640px;height: 600px;}
+.roundabout-moveable-item {cursor:pointer;list-style-type:none;overflow:hidden;height: 600px;width:638px;margin:0;padding:0;background: #282828;box-shadow: 0px 0px 13px #000;border-radius: 5px;padding: 30px;}
+.roundabout-moveable-item .name a{margin: auto;margin-top: 20px;margin-bottom: 10px;font-size: 18px;overflow: hidden;font-weight: 700;max-width: 350px;display: block;}
+.roundabout-moveable-item .price{color: #ea3247;font-size: 15px;background: url(../images/gach2.png)no-repeat left bottom;padding-bottom: 20px;max-width: 350px;margin: auto;margin-bottom: 15px;opacity: 0;height: 0px;overflow: hidden;transition: all 0.5s ease;}
+.roundabout-moveable-item .price span{text-decoration: line-through;margin-right: 10px; color: #fff;}
+.roundabout-moveable-item .desc{max-width: 350px;margin: auto;opacity: 0;transition: all 0.5s ease;background: url(../images/ic1.png)no-repeat left 5px;padding-left: 70px;}
+.roundabout-moveable-item.roundabout-in-focus .desc, .roundabout-moveable-item.roundabout-in-focus .price{opacity: 1;height: auto;}
+.roundabout-moveable-item img {display:block;margin: auto;}
+.roundabout-in-focus {cursor:auto;z-index:999 !important;height: 620px !important;}
+.roundabout-in-focus a {display:block;}
+#roundabout-prev {width:39px;height:39px;display:block;left: 0px;top:50%;position:absolute;background: url(../images/ic_left.png)no-repeat;z-index:999;}
+#roundabout-next {width:39px;height:39px;display:block;right: 0px;top:50%;position:absolute;background: url(../images/ic_right.png)no-repeat;z-index:999;}
+/* LiteAccordion Slider
+---------------------------------------- */
