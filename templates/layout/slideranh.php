@@ -3,6 +3,11 @@ $d->reset();
 $sql_slider = "select ten_$lang as ten,photo,link, mota_$lang as mota from #_slider where hienthi=1 order by stt,id desc";
 $d->query($sql_slider);
 $result_slider = $d->result_array();
+
+$d->reset();
+$sql_slider = "select ten_$lang as ten,photo,link from #_doitac where com='banner-home' and hienthi=1 order by stt,id desc";
+$d->query($sql_slider);
+$bannerHome = $d->result_array();
 ?>
 
 <?php if($source=="index") { ?>
@@ -24,6 +29,15 @@ $result_slider = $d->result_array();
 			</div>
 		</div>
 		<?php } ?>
+	</div>
+	<div class="container">
+		<div class="d-grid">
+			<?php foreach($bannerHome as $v) { ?>
+				<a href="<?=$v["link"]?>" class="d-block">
+					<img src="<?=_upload_hinhanh_l.$v["photo"]?>" alt="<?=$v["ten"]?>" class="img-fluid img-100">
+				</a>
+			<?php } ?>
+		</div>
 	</div>
 <?php } else { 
 /* <div class="section-breadcrumbs" style="background: url(<?=_upload_hinhanh_l.$row_setting["tuvan"]?>);background-size:100% 100%;">

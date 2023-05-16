@@ -49,9 +49,9 @@ img:not([src]) {
 	visibility: hidden;
 }
 /* lazy load IMAGE effect */
-.main {
+/* .main {
 	padding-top: 61px;
-}
+} */
 /**************** header ********************/
 .heading {overflow:hidden; height: 0px; visibility: hidden;}
 #heading{height:0px; visibility: hidden; overflow:hidden;}

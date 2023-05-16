@@ -15,6 +15,46 @@ img.initial, img.loaded, img.error {
 img:not([src]) {
 	visibility: hidden;
 }
+.text-color {
+    color: #60398b;
+}
+.text-color2 {
+    color: #fff;
+}
+.bgcolor1 {
+    background: #60398b !important;
+}
+.fw-b {
+    font-weight: bold;
+}
+.fs-16 {
+    font-size: 16px;
+}
+.w-30 {
+    width: 30%;
+}
+.w-40 {
+    width: 40%;
+}
+.w-60 {
+    width: 60%;
+}
+.d-grid {
+    display: grid;
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    column-gap: 10px;
+    margin-top: 10px;
+}
+@media (max-width: 768px) {
+    .w-30, .w-40, .w-60 {
+        width: 100%;
+    }
+    .d-grid {
+        grid-template-columns: 100%;
+        column-gap: 0;
+        row-gap: 10px;
+    }
+}
 /* lazy load IMAGE effect */
 /**************** header ********************/
 .heading {overflow:hidden; height: 0px; visibility: hidden;}
@@ -394,7 +434,9 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
 .slick-spnb .sp-box {margin:3px;}
 /* MAIN */
 .brand {
-    padding: 100px 0;
+    padding: 30px 0;
+}
+.brand.custom {
     background: url(../images/bg1.png) no-repeat;
     background-size: 100% auto;
     background-position: bottom;
@@ -425,11 +467,15 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
     margin-bottom: 0 !important;
 }
 .brand-title {
-    color: #0b6934;
+    color: #60398b;
     text-transform: unset !important;
     font-size: 1.75rem;
     margin-bottom: 20px;
     font-family: 'UTM Flavour';
+    text-align: center;
+    background: url(../images/bg-title.png) no-repeat bottom center;
+    background-size: 200px;
+    padding-bottom: 20px;
 }
 .step {
     width: 101px;
@@ -479,7 +525,7 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
     right: 133.5%;
 }
 .slick-product2 .slick-slide {
-    padding: 0 50px;
+    padding: 0 40px;
     transition: all ease .5s;
 }
 .slick-product2 .slick-center {
@@ -492,6 +538,9 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
     background: url(../images/bg1.jpg) no-repeat;
     background-size: cover;
     padding-top: 50px;
+}
+.home-product.custom {
+    background: transparent;
 }
 .home-product-title {
     text-transform: uppercase;
@@ -713,7 +762,7 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
     /* max-width: 450px; */
 }
 .bsa-desc {
-    margin: 60px 0;
+    /* margin: 60px 0; */
     text-align: center;
 }
 .bsa-desc img{
@@ -1230,17 +1279,17 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
     height: 100% !important;
 }
 .ve-chung-toi {
-    max-width: 600px;
+    /* max-width: 600px; */
 }
 .vechungtoi-btn, .cook-more {
         position: relative;
         border-radius: 20px;
         background-color: #f1dd4b;
-        background-image: linear-gradient(-245deg, #d8c25b 0%, #fbf5b9 24%, #e0c950 53%, #fbf1b5 75%, #c6a344 100%);
+        /* background-image: linear-gradient(-245deg, #d8c25b 0%, #fbf5b9 24%, #e0c950 53%, #fbf1b5 75%, #c6a344 100%); */
         height: 44px;
         text-shadow: 2px 1px 2px rgb(0 0 0 / 25%);
         color: #ffffff !important;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         font-size: 14px;
         display: inline-flex;
         align-items: center;
@@ -1249,7 +1298,7 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
         line-height: 44px;
 }
 .vechungtoi-btn:before, .cook-more:before{
-	background-image: linear-gradient(to right, #892427 0%, #ed2e34 50%, #7e0f12 100%);
+	/* background-image: linear-gradient(to right, #892427 0%, #ed2e34 50%, #7e0f12 100%); */
 	position: absolute;
 	top: 2px;
 	left: 2px;
@@ -1783,7 +1832,10 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
 	.continue, .fnut a {font-size: .9em;}
 	.brand {
         padding: 40px 0;
-        background-size: 100% 100%;
+        background: transparent;
+    }
+    .brand.custom {
+        background: transparent;
     }
     .slick-brand .slick-next {
         right: 79%;

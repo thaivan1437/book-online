@@ -22,10 +22,11 @@ function files_cachedScript( fileName, options ) {
 
 $(window).on("load", function() {
     //css xep cao nhat override phia duoi
+    files_cachedCss("css/style-tien.css");
     files_cachedCss("css/style.css");
     files_cachedCss("css/bootstrap.min.css");
-    files_cachedCss("font/font-awesome-4.2.0/css/font-awesome.css");
     files_cachedCss("css/mdb.min.css");
+    files_cachedCss("css/fontawesome-6.1/css/all.min.css");
     files_cachedCss("js/menu/menumaker.css");
     files_cachedCss("js/slick/slick.css");
     files_cachedCss("js/slick/slick-theme.css");

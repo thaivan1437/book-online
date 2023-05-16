@@ -16,12 +16,18 @@ $d->query($sql);
 $vechungtoi=$d->fetch_array();
 
 $d->reset();
+$d->query("select id, ten_$lang as ten, tenkhongdau, photo, mota_$lang as mota from #_about where type='dac-diem' and hienthi=1 order by stt, id desc");
+$vechungtoi2 = $d->result_array();
+
+$d->reset();
 $sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3 as link from #_time where type='hoc-vien-danh-gia'";
 $d->query($sql);
 $hvdg=$d->fetch_array();
 
 
-
+$d->reset();
+$d->query("select id, ten_$lang as ten, tenkhongdau, photo, mota_$lang as mota from #_about where type='hinh-anh' and hienthi=1 order by stt, id desc");
+$hinhanh = $d->result_array();
 
 
 $d->reset();

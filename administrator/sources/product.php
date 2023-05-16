@@ -692,13 +692,16 @@ function save_list() {
         }
         
         if(!empty($_POST["id_parent"])){
-        $data['set_level'] = implode($_POST["id_parent"],'|');
+            $data['set_level'] = implode($_POST["id_parent"],'|');
         }
         $count=count($_POST["id_parent"]);
         $data['id_parent'] = ($_POST["id_parent"][$count-1]);
         if ($data['id_parent']=='') {
             $data['id_parent'] = 0;
         }
+
+        $data['id_giangvien'] = $_POST["id_giangvien"];
+
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
         $data['ngaysua'] = time();
         
@@ -725,6 +728,9 @@ function save_list() {
         if ($data['id_parent']=='') {
             $data['id_parent'] = 0;
         }
+
+        $data['id_giangvien'] = $_POST["id_giangvien"];
+
         $data['stt'] = $_POST['stt'];
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
         $data['ngaytao'] = time();

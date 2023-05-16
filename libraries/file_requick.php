@@ -31,6 +31,17 @@ switch ($com) {
         $source = "logout";
         $template = "index";
         break;
+    case 'giao-trinh':
+        $source = "";
+        $template = "book";
+        break;
+
+    case 'video-khoa-hoc':
+        $source = "product";
+        $type='video-khoa-hoc';
+        $template = "video_khoa_hoc";
+        break;
+
     case 'chung-toi-la-ai':
         $source = "about";
 		$table="time";

@@ -131,7 +131,7 @@
 					<input type="checkbox" data-com="noibat" data-table="product_list" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['noibat']==1) echo "checked";?> name="noibat" value="<?=$items[$i]['id']?>" class="check_box" />
 				</td>
 				<td class="actBtns">
-					<a href="default.php?com=product&act=edit_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>&id_list=<?= $items[$i]['id_parent'] ?>&id_parent=<?=$items[$i]["set_level"]?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
+					<a href="default.php?com=product&act=edit_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>&id_list=<?= $items[$i]['id_parent'] ?>&id_parent=<?=$items[$i]["set_level"]?>&id_gv=<?= $items[$i]['id_giangvien'] ?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
 					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST['type']?>&subcat=<?=$_REQUEST['subcat']?>'); return false;" title="" class="smallButton tipS" original-title="Xóa sản phẩm"><img src="./images/icons/dark/close.png" alt=""></a>
 				</td>
 			</tr>
