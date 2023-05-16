@@ -6,48 +6,48 @@ $footer=$d->fetch_array();
 ?>
 <footer class="footer">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center flex-wrap">
-            <div>
-                <div class="ft-cty"><?=$row_setting['ten_'.$lang]?></div>
-                <div class="italic"><?=$row_setting['slogan_'.$lang]?></div>
+        <div class="d-flex flex-wrap justify-content-between">
+            <div class="footer-box">
+                <div class="mb-4 mb-text-center">
+                    <a href=""><img src="assets/images/logo.png" alt="logo" class="logo-img mb-foot-logo"></a>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between mb-5">
+                    <div class="foot-menu-box">
+                        <div class="foot-title">Hoài thương spa</div>
+                        <hr class="foot-hr">
+                        <div class="">Trụ sở: 40 Tân bình, Tp.HCM</div>
+                        <div class="">Chi nhánh số 1 Đống đa, Hà nội</div>
+                        <div class="">Hotline: 12345678</div>
+                        <div class="">Email: hoaithuong@gmail.com</div>
+                    </div>
+                    <div class="foot-menu-box">
+                        <div class="text-uppercase foot-title"><a href="">Khóa học</a></div>
+                        <div class="text-uppercase foot-title"><a href="">Bộ video bài giảng</a></div>
+                        <div class="text-uppercase foot-title"><a href="">Giáo trình</a></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="foot-menu-box">
+                        <div class="foot-title">Hỗ trợ khách hàng</div>
+                        <hr class="foot-hr">
+                        <div class=""><a href="">Bảo mật thông tin</a></div>
+                        <div class=""><a href="">Chính sách học nghề</a></div>
+                        <div class=""><a href="">Nguyên tắc hoàn tiền</a></div>
+                        <div class=""><a href="">Phương thức thanh toán</a></div>
+                    </div>
+                    <div class="foot-menu-box">
+                        <div class="text-uppercase foot-title">Thông tin hợp tác</div>
+                        <hr class="foot-hr">
+                        <div class=""><a href="">Định hướng kinh doanh</a></div>
+                        <div class=""><a href="">Hợp tác kinh doanh</a></div>
+                    </div>
+                </div>
             </div>
-            <div>
-				<?php foreach($rs_icon as $v){?>
-					<a href="<?=$v["url"]?>" target="_blank" rel="nofollow">
-						<img src="<?=_upload_icon_l.$v["photo"]?>" alt="<?=$v["ten_vi"]?>">
-					</a>
-				<?php }?>
-            </div>
-        </div>
-        <hr class="ft-main-hr">
-        <div class="d-flex justify-content-between flex-wrap">
-            <div class="ft-box1">
-                <div class="ft-title">Thông tin liên hệ</div>
-                <hr class="ft-hr">
-                <div class="mb-1 ft-info"><i class="fa fa-map-marker ft-fa" aria-hidden="true"></i> Địa chỉ: <?=$row_setting['diachi_'.$lang]?></div>
-                <div class="mb-1 ft-info"><i class="fa fa-phone ft-fa" aria-hidden="true"></i> Điện thoại: <?=$row_setting['hotline']?></div>
-                <div class="mb-1 ft-info"><i class="fa fa-envelope ft-fa" aria-hidden="true"></i> Email: <?=$row_setting['email']?></div>
-                <div class="mb-1 ft-info"><i class="fa fa-clock-o ft-fa" aria-hidden="true"></i> Giờ làm việc: <?=$row_setting['h6_'.$lang]?></div>
-            </div>
-            <div class="ft-box2">
-                <div class="ft-title">Chúng tôi là ai?</div>
-                <hr class="ft-hr">
-                <div class="mb-1"><a href="chung-toi-la-ai.html">Chúng tôi là ai </a></div>
-                <div class="mb-1"><a href="doanh-nhan-vao-bep.html">Doanh nhân vào bếp </a></div>
-            </div>
-            <div class="ft-box2">
-                <div class="ft-title">Sản phẩm</div>
-                <hr class="ft-hr">
-                <?php foreach($rs_list as $v) { ?>
-                <div class="mb-1"><a href="<?=$v['type']?>/<?=$v['tenkhongdau']?>-<?=$v['id']?>/"><?=$v['ten']?> </a></div>
-                <?php } ?>
-            </div>
-            <div class="ft-box2">
-                <div class="ft-title">Liên kết nhanh</div>
-                <hr class="ft-hr">
-                <div class="mb-1"><a href="tin-tuc-su-kien.html">Tin tức & Sự kiện </a></div>
-                <div class="mb-1"><a href="phat-trien-cung-bsa.html">Phát triển cùng BSA </a></div>
-                <div class="mb-1"><a href="lien-he.html">Liên hệ</a></div>
+            <div class="footer-box">
+                <div class="footer-mxh-title">Theo dõi chúng tôi tại</div>
+                <div class="">
+                    <a href=""><img src="assets/images/fake_mxh.jpg" alt="fake mxh"></a>
+                </div>
             </div>
         </div>
     </div>

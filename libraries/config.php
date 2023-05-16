@@ -2,7 +2,7 @@
 
 if(!defined('_lib')) die("Error");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-$config_url=$_SERVER["SERVER_NAME"].'/bsa_php';
+$config_url=$_SERVER["SERVER_NAME"].'/book-online';
 
 $config['key']='13250889bd58bf0c3da9048abb001f41';
 $config['pattern']=2;
@@ -15,7 +15,7 @@ $config['author']['timefinish'] = '07/2022';
 $config['salt']='@#$fd_!34^'; //token ma hoa md5
 $config['locationdefault'] = '10.853132,106.626289';
 $config['debug']=1;#Bật chế độ debug dành cho developer
-$config['subcat']=1;#Số cấp sản phẩm
+$config['subcat']=3;#Số cấp sản phẩm
 $config['subpost']['news']=3;#Số cấp nhiều bài viết của type = news
 
 $config['lang']=array('vi'=>'Tiếng Việt');#Danh sách ngôn ngữ hỗ trợ

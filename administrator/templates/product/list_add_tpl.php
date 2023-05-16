@@ -3,6 +3,8 @@
 	$id_list=$_REQUEST["id_parent"];
 	$arr=explode("|",$id_list);
 
+	$idgv=$_REQUEST["id_gv"];
+
 	if($set_level>0){
 		function get_main_list(){
 			global $rs_menu,$set_level,$d,$arr;
@@ -26,6 +28,27 @@
 			
 			return $str;
 		}
+	}
+
+	function get_gv_list(){
+		global $rs_menu,$set_level,$d,$id_list, $idgv;
+		$d->reset();
+		$sql="select * from #_product_list where com='1' and  type='giang-vien' order by stt, id desc";
+		$d->query($sql);
+		$rs_menu=$d->result_array();
+		
+		$str.='<label>Chọn giảng viên</label>
+			<div class="formRight">
+				<div class="selector">
+				<select name="id_giangvien" class="form-control input level" data-level="1" id="level1" onchange="load_level($(this))" >';
+				$str.="<option>Chọn giảng viên</option>";
+				foreach($rs_menu as $v){
+					$str.='<option value="'.$v["id"].'" ';
+					if($v["id"]==$idgv) $str.='selected'; 
+					$str.='>'.$v["ten_vi"].'</option>';
+				}
+		$str.='</select></div></div></br>';
+		return $str;
 	}
 ?>
 <script type="text/javascript">		
@@ -68,6 +91,12 @@
 				<?= get_main_list(); ?>
 				<div class="clear"></div>
 			</div>
+			<?php }?>
+			<?php if($_GET["subcat"] ==2){?>
+				<div class="formRow">
+					<?= get_gv_list(); ?>
+					<div class="clear"></div>
+				</div>
 			<?php }?>
 			<div class="formRow">
 				<label>Thẻ H1: </label>

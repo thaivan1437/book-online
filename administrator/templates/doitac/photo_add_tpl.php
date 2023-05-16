@@ -53,7 +53,13 @@
 		</ul>
 		<div id="info" class="tab_content">
 			<input type="hidden" name="id" id="id_this_product" value="<?=@$item['id']?>" />
-            
+            <div class="formRow">
+				<label>Link</label>
+				<div class="formRight">
+					<input type="text" value="<?=@$item['link']?>" name="link" title="Nhập link" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
 			<div class="formRow">
 				<label>Hình ảnh đại diện: </label>
 				<div class="formRight">

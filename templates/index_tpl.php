@@ -1,23 +1,78 @@
-<article style="background-image:url(<?=_upload_hinhanh_l . $vechungtoi['photo']?>);" class="brand">
+<article style="" class="brand">
 	<div class="container">
-		<div class="ve-chung-toi">
-			<h3 class="mb-3 brand-title" style="color:#d0b14b;"><?=$vechungtoi['ten']?></h3>
-			<div class="mb-3"><?=$vechungtoi['mota']?></div>
-			<div><a href="bsa-la-ai" class="btn vechungtoi-btn">Xem thêm</a></div>
+		<div class="d-flex flex-wrap">
+			<div class="ve-chung-toi-img <?= $deviceType == 'computer' ? 'w-50' : 'w-100' ?>">
+				<img src="<?=_upload_hinhanh_l . $vechungtoi['photo']?>" alt="<?=$vechungtoi['ten']?>" class="img-fluid img-100">
+			</div>
+			<div class="ve-chung-toi <?= $deviceType == 'computer' ? 'w-50' : 'w-100' ?>">
+				<h3 class="mb-3 brand-title"><?=$vechungtoi['ten']?></h3>
+				<div class="mb-3 text-center text-color"><?=$vechungtoi['mota']?></div>
+			</div>
+		</div>
+		<div class="wrap-about2">
+			
+			<?php if ($deviceType == 'computer') { ?>
+				<div class="d-flex justify-space-between">
+					<?php foreach($vechungtoi2 as $k => $v) { ?>
+						<div class="wrap-about2-images">
+							<img src="<?=_upload_tintuc_l.$v["photo"]?>" alt="<?=$v["ten"]?>" class="img-fluid img-100">
+						</div>
+					<?php }?>
+				</div>
+				<div class="d-flex justify-space-between bgcolor1 text-color2">
+					<?php foreach($vechungtoi2 as $k => $v) { ?>
+						<div class="wrap-about2-item text-center p-1">
+							<div class="wrap-about-name fw-b fs-16"><?=$v['ten']?></div>
+							<div class="wrap-about-desc"><?=$v['mota']?></div>
+						</div>
+					<?php }?>
+				</div>
+			<?php } else { ?>
+				<div class="">
+					<?php foreach($vechungtoi2 as $k => $v) { ?>
+						<div class="wrap-about2-images">
+							<img src="<?=_upload_tintuc_l.$v["photo"]?>" alt="<?=$v["ten"]?>" class="img-fluid img-100">
+						</div>
+						<div class="wrap-about2-item text-center bgcolor1 text-color2">
+							<div class="wrap-about-name fw-b fs-16"><?=$v['ten']?></div>
+							<div class="wrap-about-desc"><?=$v['mota']?></div>
+						</div>
+					<?php }?>
+				</div>
+			<?php }?>
 		</div>
 	</div>
 </article>
 
-<article class="brand">
+<article class="brand custom">
 	<div class="container">
 		<div class="ve-chung-toi d-flex justify-space-between align-items-center">
-			<img src="<?=_upload_hinhanh_l . $hvdg['photo']?>" alt="<?=$hvdg['ten']?>" class="img-fluid img-100 cook-img">
-			<h3 class="mb-3 brand-title" style="color:#d0b14b;"><?=$hvdg['ten']?></h3>
-			<div class="mb-3"><?=$hvdg['mota']?></div>
-			<div><a href="bsa-la-ai" class="btn vechungtoi-btn">Xem thêm</a></div>
+			<h3 class="mb-3 brand-title w-30"><?=$hvdg['ten']?></h3>
+			<div class="w-30">
+				<img src="<?=_upload_hinhanh_l . $hvdg['photo']?>" alt="<?=$hvdg['ten']?>" class="img-fluid img-100 cook-img">
+			</div>
+			<div class="mb-3 w-40"><?=$hvdg['mota']?></div>
 		</div>
 	</div>
 </article>
+
+<article class="home-product custom">
+	<div class="container">
+		<h3 class="mb-3 brand-title">HÌNH ẢNH</h3>
+		<div class="slick-product2">
+			<?php foreach($hinhanh as $v) { ?>
+			<div class="">
+				<div class="slick-product-space"></div>
+				<div class="">
+					<a href="<?=$v['type']?>/<?=$v['tenkhongdau']?>-<?=$v['id']?>.html"><img src="<?=thumb($v["photo"],_upload_tintuc_l,$v["tenkhongdau"],400,400,2,80)?>" alt="<?=$v["ten"]?>" class="img-fluid img-100"></a>
+				</div>
+				<div class="slick-product-space"></div>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+</article>
+
 
 <article class="home-product">
 	<div class="container">
@@ -50,6 +105,7 @@
 		</div>
 	</div>
 </article>
+
 <article class="community">
 	<div class="container">
 		<div class="promise-contain">
@@ -122,11 +178,14 @@
 <article class="bsa-dev">
 	<div class="container">
 		<div class="bsa-dev-contain">
-			<div class="brand-title"><?=$bdht['ten']?></div>
-			<div class="bsa-desc text-center">
-				<img src="<?=_upload_hinhanh_l . $bdht['photo']?>" alt="<?=$bdht['ten']?>" class="img-fluid img-100 cook-img">
+			<div class="brand-title mb-4"><?=$bdht['ten']?></div>
+			<div class="d-flex justify-space-between align-items-end flex-wrap">
+				<div class="w-40"><a href="<?=$bdht['link']?>" class="cook-more bgcolor1 text-color2 fw-b">Xem chi tiết</a></div>
+				<div class="bsa-desc text-center w-60">
+					<img src="<?=_upload_hinhanh_l . $bdht['photo']?>" alt="<?=$bdht['ten']?>" class="img-fluid img-100 cook-img">
+				</div>
+				
 			</div>
-			<div class=""><a href="<?=$bdht['link']?>" class="cook-more">Xem chi tiết</a></div>
 		</div>
 	</div>
 </article>

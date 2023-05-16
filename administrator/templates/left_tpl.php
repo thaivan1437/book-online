@@ -8,6 +8,7 @@
 			<li><a href="default.php?com=time&act=capnhat&type=gioi-thieu">Banner</a></li>
 			<li><a href="default.php?com=time&act=capnhat&type=ve-chung-toi">Về chúng tôi ở trang chủ</a></li>
 			<li><a href="default.php?com=about&act=man&type=dac-diem">Về chúng tôi chi tiết</a></li>
+			<li><a href="default.php?com=about&act=man&type=hinh-anh">Quản lý hình ảnh</a></li>
 
 			<li><a href="default.php?com=time&act=capnhat&type=hoc-vien-danh-gia">Học viên nói gì về chúng tôi</a></li>
 
@@ -33,6 +34,22 @@
 			<li><a href="default.php?com=product&act=man_list&subcat=<?=$i?>&type=san-pham">Quản lý danh mục cấp <?=$i?></a></li>
 			<?php }?>
 			<li><a href="default.php?com=product&act=man&type=san-pham">Quản lý sản phẩm</a></li>
+		</ul>
+	</li>
+	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="video-khoa-hoc") || ($_GET["com"]=='about' && $_GET['type']=='thuong-hieu') || ($_GET["com"]=='time' && $_GET['type']=='sp-gt') || ($_GET["com"]=='time' && $_GET['type']=='banner-sp')) echo "activemenu";?>" id="menu_sp1"><a href="" title="" class="exp"><span>Bộ video khóa học</span><strong></strong></a>
+		<ul class="sub">
+			<!-- <li><a href="default.php?com=time&act=capnhat&type=sp-gt">Đoạn giới thiệu trang chủ</a></li> -->
+			<!-- <li><a href="default.php?com=about&act=man&type=thuong-hieu">Quản lý hình logo thương hiệu</a></li> -->
+			<!-- <li><a href="default.php?com=time&act=capnhat&type=banner-sp">Banner trang danh mục sản phẩm</a></li> -->
+			<?php for($i=1;$i<=$config['subcat'];$i++){?>
+			<li><a href="default.php?com=product&act=man_list&subcat=<?=$i?>&type=video-khoa-hoc">Quản lý danh mục cấp <?=$i?></a></li>
+			<?php }?>
+			<li><a href="default.php?com=product&act=man&type=video-khoa-hoc">Quản lý video</a></li>
+		</ul>
+	</li>
+	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="giang-vien")) echo "activemenu";?>" id="menu_sp2"><a href="" title="" class="exp"><span>Giảng viên</span><strong></strong></a>
+		<ul class="sub">
+			<li><a href="default.php?com=product&act=man_list&subcat=1&type=giang-vien">Quản lý giảng viên</a></li>
 		</ul>
 	</li>
 	<li class="categories_li <?php if(($_GET["com"]=='about' && $_GET['type']=='cong-dong-doanh-nghiep') || ($_GET["com"]=='time' && $_GET['type']=='cddn-gt') || ($_GET["com"]=='time' && $_GET['type']=='chu-ky') || ($_GET["com"]=='time' && $_GET['type']=='cddn-lh')) echo "activemenu";?>" id="menu_cddn"><a href="" title="" class="exp"><span>Cộng đồng doanh nghiệp</span><strong></strong></a>
@@ -72,7 +89,7 @@
 		<ul class="sub">
 			<li><a href="default.php?com=bannerqc&act=capnhat">Quản lý Logo</a></li>
 			<li><a href="default.php?com=slider&act=man_photo&type=slider">Quản lý Slider</a></li>
-			<li><a href="default.php?com=doitac&act=man_photo&type=banner-home">Banner trang chủ</a></li>
+			<li><a href="default.php?com=doitac&act=man_photo&type=banner-home">Banner ads dưới slide trang chủ</a></li>
 		</ul>
 	</li>
 	<li class="categories_li <?php if($_GET["com"]=='icon' || $_GET["com"]=='yahoo' ||$_GET["com"]=='lienhe' || $_GET["com"]=='footer' || $_GET["com"]=='setting') echo "activemenu";?>" id="menu_tl"><a href="" title="" class="exp"><span>Thiết lập</span><strong></strong></a>

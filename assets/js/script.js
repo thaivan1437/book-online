@@ -352,20 +352,21 @@ $('.slick-product1').slick({
 	arrows: false,
 	centerMode: true,
 	focusOnSelect: true,
+	centerPadding: '0',
 	responsive: [
 		{
 			breakpoint: 1024,
 			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				infinite: true,
 			}
 		},
 		{
 			breakpoint: 601,
 			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
+				slidesToShow: 2,
+				slidesToScroll: 1
 			}
 		},
 		{
@@ -742,6 +743,164 @@ $('.productlist-js').click(function() {
 $('.tuyendung-js').click(function() {
 	window.location.href = $(this).data('href');
 });
+
+// slick a Tien
+$('.slick-vote').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 620,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+  $('.slick-news').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 481,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+  $('.slick-partner').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        }
+      },
+      {
+        breakpoint: 601,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 481,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+  $('.slick-banner').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    cssEase: 'linear',
+    autoplay:true,
+    autoplaySpeed:4000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 481,
+        settings: {
+        dots: false,
+        arrows: false
+        }
+      }
+    ]
+  });
+
+
+  /* active cauhoi */
+  $('.cauhoi-box').click(function() {
+    $('.cauhoi-box').removeClass('active').find('div.cauhoi-desc').css({'display':'none'});
+    $(this).addClass('active');
+    $(this).find('div.cauhoi-desc').slideDown();
+  });
+// end slick a Tien
 
 // event delay after ms second
 function delay(callback, ms) {

@@ -166,6 +166,7 @@ function save_photo() {
         $data['description_vi'] = $_POST['description_vi'];
         $data['description_en'] = $_POST['description_en'];
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
+        $data['link'] = $_POST['link'];
         $data['com'] = $type;
 
         $data['mota'] = $_POST['mota'];
@@ -185,6 +186,7 @@ function save_photo() {
             $data['thumb'] = create_thumb($data['photo'], 310, 310, _upload_hinhanh, $file_name, 2);
         }
 		$data['id_photo'] = (int)$_REQUEST['id_photo'];
+        $data['link'] = $_POST['link'];
         $data['ten_vi'] = $_POST['ten_vi'];
         $data['ten_en'] = $_POST['ten_en'];
         $data['noidung_vi'] = $_POST['noidung_vi'];
