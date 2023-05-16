@@ -143,6 +143,25 @@ $('a.xem_video').click(function(){
 
 $(".numbers-row").append('<div class="inc button">-</div><div class="dec button">+</div>');
 
+$(".nut-mua").click(function() {
+	var id = $(this).data("id");
+	loadToCart(id,1);
+});
+$(".nut-them").click(function() {
+	var id = $(this).data("id");
+	addtocart(id,1);
+});
+$(".spct-mua").click(function() {
+	var id = $(this).data("id");
+	var sl = $("#french-hens").val();
+	loadToCart(id,sl);
+});
+$(".spct-them").click(function() {
+	var id = $(this).data("id");
+	var sl = $("#french-hens").val();
+	addtocart(id,sl);
+});
+
 $(".button").on("click", function() {
 	var $button = $(this);
 	var oldValue = $button.parent().find("input").val();
@@ -859,6 +878,72 @@ $('.slick-vote').slick({
         breakpoint: 481,
         settings: {
         slidesToShow: 2,
+        slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+  $('.slick-banner').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    cssEase: 'linear',
+    autoplay:true,
+    autoplaySpeed:4000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 481,
+        settings: {
+        dots: false,
+        arrows: false
+        }
+      }
+    ]
+  });
+	
+	$('.slick-hocvien').slick({
+    lazyLoad: 'ondemand',
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    accessibility: false,
+    pauseOnHover:true,
+    //vertical:true,
+    //verticalSwiping:true,
+    dots: false,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        }
+      },
+      {
+        breakpoint: 769,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 481,
+        settings: {
+        slidesToShow: 1,
         slidesToScroll: 1
         }
       }

@@ -39,7 +39,13 @@ switch ($com) {
     case 'video-khoa-hoc':
         $source = "product";
         $type='video-khoa-hoc';
-        $template = "video_khoa_hoc";
+        $template = isset($_GET['id']) ? "product_video" : "video_khoa_hoc";
+        break;
+    
+    case 'khoa-hoc':
+        $source = "product";
+        $type='khoa-hoc';
+        $template = isset($_GET['id']) ? "product_khoa_hoc" : "video_khoa_hoc";
         break;
 
     case 'chung-toi-la-ai':

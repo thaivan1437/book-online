@@ -89,20 +89,27 @@ $rs_list=$d->result_array();
     <div class="container">
         <div class="d-flex justify-content-between align-items-center position-relative">
             <div class="head-box">
-                <a href="" class="text-uppercase menu-item">Khóa học</a>
-                <a href="" class="text-uppercase menu-item">Bộ video bài giảng</a>
+                <a href="khoa-hoc.html" class="text-uppercase menu-item">
+                    Khóa học
+                    <div class="header-submenu">
+                        <?php foreach($rs_list as $item) { ?>
+                            <div><a href="<?=$item['type']?>/<?=$item['tenkhongdau']?>-<?=$item['id']?>/"><?=$item['ten']?></a></div>
+                        <?php } ?>
+                    </div>
+                </a>
+                <a href="video-khoa-hoc.html" class="text-uppercase menu-item">Bộ video bài giảng</a>
             </div>
             <div class="logo">
                 <a href=""><img src="assets/images/logo.png" alt="logo" class="logo-img"></a>
             </div>
             <div class="head-box text-right">
-                <a href="" class="text-uppercase menu-item">Giáo trình</a>
+                <a href="giao-trinh.html" class="text-uppercase menu-item">Giáo trình</a>
                 <a href="" class="menu-item">Đăng ký</a>
                 <a href="" class="menu-item">Đăng nhập</a>
             </div>
         </div>
         <div class="head-breadcrum">
-            <a href="" class="head-breadcrum-item">Trang chủ</a>
+            <a href="/" class="head-breadcrum-item">Trang chủ</a>
             <a href="" class="head-breadcrum-item">Giáo trình</a>
             <a href="" class="head-breadcrum-item">Sách giáo trình</a>
         </div>

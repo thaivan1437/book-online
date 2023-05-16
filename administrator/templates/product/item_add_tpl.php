@@ -84,8 +84,52 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-            <div class="formRow">
+      <div class="formRow">
 				<?= get_main_list(); ?>
+				<div class="clear"></div>
+			</div>
+
+
+			<div class="formRow">
+				<label>Giá: </label>
+				<div class="formRight">
+					<input type="text" id="gia" name="gia" value="<?=@$item['gia']?>"  title="Giá" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
+				<label>Giá sale: </label>
+				<div class="formRight">
+					<input type="text" id="giakm" name="giakm" value="<?=@$item['giakm']?>"  title="Giá km" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
+				<label>Hình thức học: </label>
+				<div class="formRight">
+					<input type="text" id="hinhthuc" name="hinhthuc" value="<?=@$item['hinhthuc']?>"  title="Hình thức học" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
+				<label>Ngày khai giảng: </label>
+				<div class="formRight">
+					<input type="text" id="ngaykhaigiang" name="ngaykhaigiang" value="<?=@$item['ngaykhaigiang']?>"  title="Ngày khai giảng" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
+				<label>Giờ học: </label>
+				<div class="formRight">
+					<input type="text" id="giohoc" name="giohoc" value="<?=@$item['giohoc']?>"  title="Giờ học" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
+				<label>Lịch học: </label>
+				<div class="formRight">
+					<input type="text" id="lichhoc" name="lichhoc" value="<?=@$item['lichhoc']?>"  title="Lịch học" class="tipS" />
+				</div>
 				<div class="clear"></div>
 			</div>
 			

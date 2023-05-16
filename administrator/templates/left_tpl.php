@@ -25,20 +25,20 @@
 			<li><a href="default.php?com=time&act=capnhat&type=tai-lieu-giao-trinh">Tài liệu giáo trình</a></li>
 		</ul>
 	</li>
-	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="san-pham") || ($_GET["com"]=='about' && $_GET['type']=='thuong-hieu') || ($_GET["com"]=='time' && $_GET['type']=='sp-gt') || ($_GET["com"]=='time' && $_GET['type']=='banner-sp')) echo "activemenu";?>" id="menu_sp"><a href="" title="" class="exp"><span>Sản phẩm</span><strong></strong></a>
+	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="khoa-hoc") || ($_GET["com"]=='about' && $_GET['type']=='thuong-hieu') || ($_GET["com"]=='time' && $_GET['type']=='sp-gt') || ($_GET["com"]=='time' && $_GET['type']=='banner-sp')) echo "activemenu";?>" id="menu_sp"><a href="" title="" class="exp"><span>Khóa học</span><strong></strong></a>
 		<ul class="sub">
 			<li><a href="default.php?com=time&act=capnhat&type=sp-gt">Đoạn giới thiệu trang chủ</a></li>
 			<!-- <li><a href="default.php?com=about&act=man&type=thuong-hieu">Quản lý hình logo thương hiệu</a></li> -->
-			<li><a href="default.php?com=time&act=capnhat&type=banner-sp">Banner trang danh mục sản phẩm</a></li>
+			<li><a href="default.php?com=time&act=capnhat&type=banner-sp">Banner trang danh mục khóa học</a></li>
 			<?php for($i=1;$i<=$config['subcat'];$i++){?>
-			<li><a href="default.php?com=product&act=man_list&subcat=<?=$i?>&type=san-pham">Quản lý danh mục cấp <?=$i?></a></li>
+			<li><a href="default.php?com=product&act=man_list&subcat=<?=$i?>&type=khoa-hoc">Quản lý danh mục cấp <?=$i?></a></li>
 			<?php }?>
-			<li><a href="default.php?com=product&act=man&type=san-pham">Quản lý sản phẩm</a></li>
+			<li><a href="default.php?com=product&act=man&type=khoa-hoc">Quản lý khóa học</a></li>
 		</ul>
 	</li>
 	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="video-khoa-hoc") || ($_GET["com"]=='about' && $_GET['type']=='thuong-hieu') || ($_GET["com"]=='time' && $_GET['type']=='sp-gt') || ($_GET["com"]=='time' && $_GET['type']=='banner-sp')) echo "activemenu";?>" id="menu_sp1"><a href="" title="" class="exp"><span>Bộ video khóa học</span><strong></strong></a>
 		<ul class="sub">
-			<!-- <li><a href="default.php?com=time&act=capnhat&type=sp-gt">Đoạn giới thiệu trang chủ</a></li> -->
+			<li><a href="default.php?com=time&act=capnhat&type=video-khoa-hoc">Đoạn giới thiệu trang chủ</a></li>
 			<!-- <li><a href="default.php?com=about&act=man&type=thuong-hieu">Quản lý hình logo thương hiệu</a></li> -->
 			<!-- <li><a href="default.php?com=time&act=capnhat&type=banner-sp">Banner trang danh mục sản phẩm</a></li> -->
 			<?php for($i=1;$i<=$config['subcat'];$i++){?>

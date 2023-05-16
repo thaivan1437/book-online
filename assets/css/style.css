@@ -1,4 +1,4 @@
-body {font-family: 'Comfortaa', cursive;font-size: 14px;}
+body {font-family: 'Roboto', cursive;font-size: 14px;}
 a {color:unset;}
 a:hover {color: red;text-decoration: none;}
 b, strong {font-weight: bold;}
@@ -14,6 +14,15 @@ img.initial, img.loaded, img.error {
 }
 img:not([src]) {
 	visibility: hidden;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
 }
 .text-color {
     color: #60398b;
@@ -45,14 +54,22 @@ img:not([src]) {
     column-gap: 10px;
     margin-top: 10px;
 }
+.d-grid-3 {
+    display: grid;
+    grid-template-columns: calc(33% - 7px) calc(33% - 7px) calc(33% - 7px);
+    column-gap: 20px;
+}
 @media (max-width: 768px) {
     .w-30, .w-40, .w-60 {
         width: 100%;
     }
-    .d-grid {
+    .d-grid, .d-grid-3 {
         grid-template-columns: 100%;
         column-gap: 0;
         row-gap: 10px;
+    }
+    .home-product {
+        padding-top: 0 !important;
     }
 }
 /* lazy load IMAGE effect */
@@ -755,7 +772,7 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
 .bsa-dev {
     /* background: url(../images/bg3.jpg) no-repeat; */
     /* background-size: 100% 100%; */
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
 }
 .bsa-dev-contain {
@@ -829,17 +846,46 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
 }
 .product-contain {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 15px;
 }
 .product-box {
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 20px;
+    /* padding: 20px; */
     text-align: center;
 }
+.sp-prices {
+    background: #a38bbd;
+    min-height: 42px;
+    padding-left: 15px;
+    padding: 3px 10px;
+}
+.see-more {
+    background-color: #60398b;
+    color: #fff;
+    border-radius: 10px;
+}
+.spkm-gia-bt {
+    text-decoration: line-through;
+}
+.line-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    -webkit-line-clamp: 2;
+    height: 40px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
 .product-box:hover {
-    border: 2px solid #00502f;
+    border: 1px solid #60398b;
+}
+.pl-1 {
+    padding-left: 10px;
+}
+.pl-2 {
+    padding-left: 15px;
 }
 .productlist-space {
     min-height: 10px;
@@ -1942,7 +1988,7 @@ nav.fixed ul{max-width: 1000px; margin: auto !important;}
 		padding: 0;
 	}
     .main {
-        padding-top: 42px !important;
+        /* padding-top: 42px !important; */
     }
     .footer {
         padding: 40px 0;
