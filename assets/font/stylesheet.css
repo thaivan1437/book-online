@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'SVN-Gilroy-bold';
+    src: url('SVN-GilroyBold.eot');
+    src: url('SVN-GilroyBold.eot?#iefix') format('embedded-opentype'),
+        url('SVN-GilroyBold.woff2') format('woff2'),
+        url('SVN-GilroyBold.woff') format('woff'),
+        url('SVN-GilroyBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-GilroyHeavy';
+    src: url('SVN-GilroyHeavy.eot');
+    src: url('SVN-GilroyHeavy.eot?#iefix') format('embedded-opentype'),
+        url('SVN-GilroyHeavy.woff2') format('woff2'),
+        url('SVN-GilroyHeavy.woff') format('woff'),
+        url('SVN-GilroyHeavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('SVN-Gilroy.eot');
+    src: url('SVN-Gilroy.eot?#iefix') format('embedded-opentype'),
+        url('SVN-Gilroy.woff2') format('woff2'),
+        url('SVN-Gilroy.woff') format('woff'),
+        url('SVN-Gilroy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

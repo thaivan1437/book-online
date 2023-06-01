@@ -9,7 +9,7 @@ $footer=$d->fetch_array();
         <div class="d-flex flex-wrap justify-content-between">
             <div class="footer-box">
                 <div class="mb-4 mb-text-center">
-                    <a href=""><img src="assets/images/logo.png" alt="logo" class="logo-img mb-foot-logo"></a>
+                    <a href=""><img src="<?=_upload_hinhanh_l.$row_photo['photo']?>" alt="logo" class="logo-img mb-foot-logo"></a>
                 </div>
                 <div class="d-flex flex-wrap justify-content-between mb-5">
                     <div class="foot-menu-box">
@@ -46,7 +46,10 @@ $footer=$d->fetch_array();
             <div class="footer-box">
                 <div class="footer-mxh-title">Theo dõi chúng tôi tại</div>
                 <div class="">
-                    <a href=""><img src="assets/images/fake_mxh.jpg" alt="fake mxh"></a>
+                    <a href="<?=$row_setting["facebook"]?>"><img src="assets/images/fb.png" alt="fake mxh" width="30px"></a>
+                    <a href="<?=$row_setting["messager"]?>"><img src="assets/images/mess.png" alt="fake mxh" width="30px"></a>
+                    <a href="<?=$row_setting["zalo"]?>"><img src="assets/images/zalo.png" alt="fake mxh" width="30px"></a>
+                    <a href="<?=$row_setting["ins"]?>"><img src="assets/images/ins.png" alt="fake mxh" width="30px"></a>
                 </div>
             </div>
         </div>

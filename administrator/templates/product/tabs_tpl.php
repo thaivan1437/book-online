@@ -53,8 +53,8 @@
 					<input type="checkbox" data-com="hienthi" data-table="product_tab" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['hienthi']==1) echo "checked";?> name="hienthi" value="<?=$items[$i]['id']?>" class="check_box" />
 				</td>
 				<td class="actBtns">
-					<a href="default.php?com=product&act=edit_tab&idc=<?=$_REQUEST["idc"]?>" title="" class="smallButton tipS" original-title="Sửa dự án"><img src="./images/icons/dark/pencil.png" alt=""></a>
-					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_tab&id=<?=$items[$i]['id']?>&idc=<?=$_REQUEST["idc"]?>'); return false;" title="" class="smallButton tipS" original-title="Xóa dự án"><img src="./images/icons/dark/close.png" alt=""></a>
+					<a href="default.php?com=product&act=edit_tab&id=<?=$items[$i]["id"]?>&idc=<?=$_REQUEST["idc"]?>" title="" class="smallButton tipS" original-title="Sửa dự án"><img src="./images/icons/dark/pencil.png" alt=""></a>
+					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_tab&id=<?=$items[$i]['id']?>&idc=<?=$_REQUEST['idc']?>'); return false;" title="" class="smallButton tipS" original-title="Xóa dự án"><img src="./images/icons/dark/close.png" alt=""></a>
 				</td>
 			</tr>
 			<?php } ?>

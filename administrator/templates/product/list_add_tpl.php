@@ -92,12 +92,78 @@
 				<div class="clear"></div>
 			</div>
 			<?php }?>
+
+
+
 			<?php if($_GET["subcat"] ==2){?>
 				<div class="formRow">
 					<?= get_gv_list(); ?>
 					<div class="clear"></div>
 				</div>
+
+				<div class="formRow">
+					<label>Giá: </label>
+					<div class="formRight">
+						<input type="text" id="gia" name="gia" value="<?=@$item['gia']?>"  title="Giá" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Giá sale: </label>
+					<div class="formRight">
+						<input type="text" id="giakm" name="giakm" value="<?=@$item['giakm']?>"  title="Giá km" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Hình thức học: </label>
+					<div class="formRight">
+						<input type="text" id="hinhthuc" name="hinhthuc" value="<?=@$item['hinhthuc']?>"  title="Hình thức học" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Ngày khai giảng: </label>
+					<div class="formRight">
+						<input type="text" id="ngaykhaigiang" name="ngaykhaigiang" value="<?=@$item['ngaykhaigiang']?>"  title="Ngày khai giảng" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Giờ học: </label>
+					<div class="formRight">
+						<input type="text" id="giohoc" name="giohoc" value="<?=@$item['giohoc']?>"  title="Giờ học" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Lịch học: </label>
+					<div class="formRight">
+						<input type="text" id="lichhoc" name="lichhoc" value="<?=@$item['lichhoc']?>"  title="Lịch học" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Số buổi học: </label>
+					<div class="formRight">
+						<input type="text" id="sobuoihoc" name="sobuoihoc" value="<?=@$item['sobuoihoc']?>"  title="Số buổi học" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label>Địa điểm: </label>
+					<div class="formRight">
+						<input type="text" id="diadiem" name="diadiem" value="<?=@$item['diadiem']?>"  title="Địa điểm" class="tipS" />
+					</div>
+					<div class="clear"></div>
+				</div>
+				
 			<?php }?>
+
+
+
+
+
 			<div class="formRow">
 				<label>Thẻ H1: </label>
 				<div class="formRight">
@@ -119,6 +185,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
+			
 			<div class="formRow">
 				<label>Hình ảnh đại diện: </label>
 				<div class="formRight">
@@ -131,6 +198,26 @@
 				</div>
 				<div class="clear"></div>
 			</div>
+			<div class="formRow">
+				<label>Hình ảnh kèm theo: <?=count($ds_photo1)?></label>
+				<div class="formRight">
+					<a class="file_input" data-jfiler-name="files" data-jfiler-extensions="jpg, jpeg, png, gif"><i class="fa fa-paperclip"></i> Thêm ảnh</a>
+					<?php if($act=='edit_list'){?>
+						<?php if(count($ds_photo1)!=0){?>       
+							<?php for($i=0;$i<count($ds_photo1);$i++){?>
+							<div class="item_trich trich<?=$ds_photo1[$i]['id']?>">
+								<img class="img_trich" width="100px" height="80px" src="<?=_upload_product.$ds_photo1[$i]['photo']?>" />
+								<input type="text" id="stt_trich<?=$ds_photo1[$i]['id']?>" value="<?=$ds_photo1[$i]['stt']?>" onkeypress="return OnlyNumber(event)" class="tipS" onchange="return updateStthinh('hasp', '<?=$ds_photo1[$i]['id']?>')" />
+								<a href="javascript:void(0)" class="change_stt" rel="<?=$ds_photo1[$i]['id']?>"><i class="fa fa-trash-o"></i></a>
+								<div id="loader<?=$ds_photo1[$i]['id']?>" class="loader_trich"><img src="images/loader.gif" /></div>
+							</div>
+							<?php }?>
+						<?php }?>
+					<?php }?>
+				</div>
+				<div class="clear"></div>
+			</div>
+
 			<div class="formRow">
 				<label>Tùy chọn: <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Check vào những tùy chọn "> </label>
 				<div class="formRight">
@@ -166,21 +253,55 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="formRow">
-				<label>Mô tả: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết mô tả ngắn"> </label>
-				<div class="formRight">
-					<textarea name="mota_<?=$key?>" rows="8" cols="60" class="tipS" id="mota_<?=$key?>"><?=@$item['mota_'.$key]?></textarea>
+			<?php if ($_REQUEST["type"] == 'video-khoa-hoc' || $_REQUEST["type"] == 'khoa-hoc') {?>
+				<div class="formRow">
+					<label>Mô tả khóa học: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que" original-title="Viết mô tả ngắn"> </label>
+					<div class="formRight">
+						<textarea name="mtkh" rows="8" cols="60" class="editor" id="mtkh"><?=@$item['mtkh']?></textarea>
+					</div>
+					<div class="clear"></div>
 				</div>
-				<div class="clear"></div>
-			</div>
-            <div class="formRow">
-				<label>Nội dung chính: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết nội dung chính"> </label>
-				<div class="formRight">
-					<textarea name="noidung_<?=$key?>" rows="8" cols="60" class="editor" id="noidung_<?=$key?>"><?=@$item['noidung_'.$key]?></textarea>
+				<div class="formRow">
+					<label>Link youtube mô tả khóa học</label>
+					<div class="formRight">
+						<input type="text" value="<?=@$item['mtkh_video']?>" name="mtkh_video" title="Link youtube mô tả khóa học" class="tipS" />
+					</div>
+					<div class="clear"></div>
 				</div>
-				<div class="clear"></div>
-			</div>
 
+				<div class="formRow">
+					<label>Chương trình khuyến mãi: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết nội dung chính"> </label>
+					<div class="formRight">
+						<textarea name="ctkm" rows="8" cols="60" class="editor" id="ctkm"><?=@$item['ctkm']?></textarea>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="formRow">
+					<label>Kết quả sau khóa học: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que" original-title="Viết mô tả ngắn"> </label>
+					<div class="formRight">
+						<textarea name="result_kh" rows="8" cols="60" class="editor" id="result_kh"><?=@$item['result_kh']?></textarea>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<?php } else {?>
+				<div class="formRow">
+					<label>Mô tả ngắn:<img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết mô tả ở đây"> </label>
+					<div class="formRight">
+						<textarea name="mota_<?=$key?>" rows="8" cols="60" class="editor" id="mota_<?=$key?>"><?=@$item['mota_'.$key]?></textarea>
+					</div>
+					<div class="clear"></div>
+				</div>  
+				<div class="formRow">
+					<label>Nội dung: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết nội dung chính"> </label>
+					<div class="formRight">
+						<textarea name="noidung_<?=$key?>" rows="8" cols="60" class="editor" id="noidung_<?=$key?>"><?=@$item['noidung_'.$key]?></textarea>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<?php } ?>
+
+			
 			<div class="formRow">
 				<label>Title</label>
 				<div class="formRight">
@@ -221,6 +342,64 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		load_level($(".level"));
+		$('.file_input').filer({
+			showThumbs: true,
+			templates: {
+					box: '<ul class="jFiler-item-list"></ul>',
+					item: '<li class="jFiler-item">\
+											<div class="jFiler-item-container">\
+													<div class="jFiler-item-inner">\
+															<div class="jFiler-item-thumb">\
+																	<div class="jFiler-item-status"></div>\
+																	<div class="jFiler-item-info">\
+																			<span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+																	</div>\
+																	{{fi-image}}\
+															</div>\
+															<div class="jFiler-item-assets jFiler-row">\
+																	<ul class="list-inline pull-left">\
+																			<li><span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span></li>\
+																	</ul>\
+																	<ul class="list-inline pull-right">\
+																			<li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+																	</ul>\
+															</div>\<input type="text" name="stthinh[]" class="stthinh" />\
+													</div>\
+											</div>\
+									</li>',
+					itemAppend: '<li class="jFiler-item">\
+											<div class="jFiler-item-container">\
+													<div class="jFiler-item-inner">\
+															<div class="jFiler-item-thumb">\
+																	<div class="jFiler-item-status"></div>\
+																	<div class="jFiler-item-info">\
+																			<span class="jFiler-item-title"><b title="{{fi-name}}">{{fi-name | limitTo: 25}}</b></span>\
+																	</div>\
+																	{{fi-image}}\
+															</div>\
+															<div class="jFiler-item-assets jFiler-row">\
+																	<ul class="list-inline pull-left">\
+																			<span class="jFiler-item-others">{{fi-icon}} {{fi-size2}}</span>\
+																	</ul>\
+																	<ul class="list-inline pull-right">\
+																			<li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+																	</ul>\
+															</div>\<input type="text" name="stthinh[]" class="stthinh" />\
+													</div>\
+											</div>\
+									</li>',
+					progressBar: '<div class="bar"></div>',
+					itemAppendToEnd: true,
+					removeConfirmation: true,
+					_selectors: {
+							list: '.jFiler-item-list',
+							item: '.jFiler-item',
+							progressBar: '.bar',
+							remove: '.jFiler-item-trash-action',
+					}
+			},
+			addMore: true
+	});
 	})
 	function load_level($obj){
 		$level=$obj.data("level");

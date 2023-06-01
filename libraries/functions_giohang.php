@@ -5,7 +5,7 @@ global $lang;
 function get_product_name($pid) {
     global $d, $row, $lang;
     $d->reset();
-    $sql = "select ten_$lang as ten from #_product where id=$pid";
+    $sql = "select ten_$lang as ten from #_product_list where id=$pid";
     $d->query($sql);
     $row = $d->fetch_array();
     return $row['ten'];
@@ -37,7 +37,7 @@ function get_color_code($pid) {
 function get_product_code($pid) {
     global $d, $row;
     $d->reset();
-    $sql = "select masp from #_product where id=$pid";
+    $sql = "select masp from #_product_list where id=$pid";
     $d->query($sql);
     $row = $d->fetch_array();
     return $row['masp'];
@@ -45,7 +45,7 @@ function get_product_code($pid) {
 function get_product_image($pid) {
     global $d, $row;
     $d->reset();
-    $sql = "select photo from #_product where id=$pid";
+    $sql = "select photo from #_product_list where id=$pid";
     $d->query($sql);
     $row = $d->fetch_array();
     return $row['photo'];
@@ -53,7 +53,7 @@ function get_product_image($pid) {
 function get_price($pid) {
     global $d, $row;
     $d->reset();
-    $sql = "select gia,giakm from table_product where id=$pid";
+    $sql = "select gia,giakm from table_product_list where id=$pid";
     $d->query($sql);
     $row = $d->fetch_array();
     if($row["giakm"]>0){
@@ -65,7 +65,7 @@ function get_price($pid) {
 function get_price_goc($pid) {
     global $d, $row;
     $d->reset();
-    $sql = "select gia from table_product where id=$pid";
+    $sql = "select gia from table_product_list where id=$pid";
     $d->query($sql);
     $row = $d->fetch_array();
     return $row['gia'];

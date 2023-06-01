@@ -193,7 +193,7 @@ if ($id != '') {
 		return $flag;
 	}
 } else if ($idc != '') {
-    $d->query("select ten_$lang as ten,id, id_parent, set_level,avata, photo, h1, h2, h3,noidung_$lang as noidung, title_$lang as title, keywords_$lang as keywords, description_$lang as description,com from #_product_list where id='" . $idc . "'");
+    $d->query("select ten_$lang as ten,id, id_parent, set_level,avata, photo, h1, h2, h3,noidung_$lang as noidung, title_$lang as title, keywords_$lang as keywords, description_$lang as description,com, table_product_list.* from #_product_list where id='" . $idc . "'");
     $rs_menu = $d->fetch_array();
 	
 	// break crumb
@@ -222,11 +222,39 @@ if ($id != '') {
 		$image_share='http://' . $config_url .'/'. _upload_product_l.$rs_menu["photo"];
 	}
 	//Lấy danh mục cấp con nổi bật
+
+	$d->reset();
+	$sql="select ten_$lang as ten from #_product_list where type='giang-vien' and id = ".$rs_menu['id_giangvien'] ." and hienthi=1 order by stt, id desc";
+	$d->query($sql);
+	$rf_giangvien=$d->fetch_array();
+
+	$d->reset();
+	$sql="select ten_$lang as ten,mota_$lang as mota,id,photo, type from #_product_list where type='giang-vien' and hienthi=1 order by stt, id desc";
+	$d->query($sql);
+	$rs_giangvien=$d->result_array();
 	
 	$d->reset();
-	$sql="select * from #_product_list where find_in_set('" . $rs_menu['id'] . "',set_level)>0 and hienthi=1 and noibat>0 order by stt, id desc";
+	$sql="select ten_$lang as ten,id,tenkhongdau,photo, type, hinhthuc,ngaykhaigiang,giohoc,lichhoc,gia,giakm from #_product_list where id != " . $rs_menu['id'] . " and type = '".$type."' and hienthi=1 and com=2 order by stt, id desc";
 	$d->query($sql);
-	$rs_danhmuc_child=$d->result_array();
+	$rs_danhmuc_other=$d->result_array();
+
+	$d->reset();
+	$sql="select ten_$lang as ten,id,tenkhongdau,photo, type, hinhthuc,ngaykhaigiang,giohoc,lichhoc,gia,giakm from #_product_list where id_parent = " . $rs_menu['id'] . " and hienthi=1 and com=3 order by stt, id desc";
+	$d->query($sql);
+	$rs_category_child=$d->result_array();
+
+
+	$d->reset();
+	$sql = "select ten_$lang as ten,photo, noidung_$lang as noidung from #_product_tab where ( id_photo = '" . $rs_menu['id'] . "' OR '" . $rs_menu['id'] . "'=0  ) order by stt,id desc ";
+	$d->query($sql);
+	$rs_book = $d->result_array();
+
+	$d->reset();
+	$sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3 as link from #_about where type='hoc-vien-danh-gia'";
+	$d->query($sql);
+	$hvdg=$d->result_array();
+	
+	
 	
 	//id_list active menu trong template LEFT
 	if($rs_menu["set_level"]!=''){
@@ -238,10 +266,19 @@ if ($id != '') {
     $title_tcat = $rs_menu['ten'];
 	
 	
-	$d->reset();
-    $sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,spbc,noibat,giakm,rate, luot_rate,masp, id_list, mota_$lang as mota, spkm, spbc,type from #_product where hienthi=1 and find_in_set('" . $rs_menu['id'] . "',list_id)>0 order by stt, id desc";
-    $d->query($sql);
-    $product = $d->result_array();
+		// $d->reset();
+    // $sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,spbc,noibat,giakm,rate, luot_rate,masp, id_list, mota_$lang as mota, spkm, spbc,type from #_product where hienthi=1 and find_in_set('" . $rs_menu['id'] . "',list_id)>0 order by stt, id desc";
+    // $d->query($sql);
+    // $product = $d->result_array();
+
+		$d->reset();
+		$sql="select ten_$lang as ten,id,tenkhongdau,photo, type, hinhthuc,ngaykhaigiang,giohoc,lichhoc,gia,giakm from #_product_list where id_parent = " . $rs_menu['id'] . " and hienthi=1 and com=3 order by stt, id desc";
+		$d->query($sql);
+		$product=$d->result_array();
+
+		if ($rs_menu['com'] == 1) {
+			$template = 'video_khoa_hoc';
+		}
 
     $tongsanpham = count($product);
     $curPage = isset($_GET['p']) ? $_GET['p'] : 1;
@@ -258,8 +295,12 @@ if ($id != '') {
 	#share
 	$image_share='http://' . $config_url .'/'._upload_hinhanh_l.$row_photo["logo"];
 	
-    $sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,rate, luot_rate, id_list, mota_$lang as mota, spkm, masp, spbc,type from #_product where hienthi=1 $where order by stt, id desc";
-    $d->query($sql);
+    // $sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,rate, luot_rate, id_list, mota_$lang as mota, spkm, masp, spbc,type from #_product where hienthi=1 $where order by stt, id desc";
+    // $d->query($sql);
+    // $product = $d->result_array();
+
+
+		$d->query("select ten_$lang as ten,id, id_parent, set_level,avata, photo, h1, h2, h3,noidung_$lang as noidung, title_$lang as title, keywords_$lang as keywords, description_$lang as description,com, table_product_list.* from #_product_list where type='" . $type . "' and com=2 order by stt, id desc");
     $product = $d->result_array();
 
     $tongsanpham = count($product);

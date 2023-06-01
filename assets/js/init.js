@@ -29,6 +29,7 @@ $(window).on("load", function() {
     files_cachedCss("css/fontawesome-6.1/css/all.min.css");
     files_cachedCss("js/menu/menumaker.css");
     files_cachedCss("js/slick/slick.css");
+    files_cachedCss("font/stylesheet.css");
     files_cachedCss("js/slick/slick-theme.css");
 
     files_cachedScript('js/lazyload/lazyload.min.js');
@@ -39,6 +40,4 @@ $(window).on("load", function() {
     files_cachedScript('js/slick/slick.min.js').then(function() {
         files_cachedScript('js/script.js');
     });
-    
-    
 });

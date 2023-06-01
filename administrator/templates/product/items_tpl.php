@@ -60,7 +60,8 @@
 				<td width="150">Hình ảnh</td>
 				<td class="sortCol"><div>Tên bài viết<span></span></div></td>
 				<td class="tb_data_small">Ẩn/Hiện</td>
-				<td width="100">Nổi bật</td>
+				<td class="tb_data_small">Nổi bật</td>
+				<td class="tb_data_small">Học thử</td>
 				<td width="100">Thao tác</td>
 			</tr>
 		</thead>
@@ -91,6 +92,9 @@
 				</td>
 				<td align="center">
 					<input type="checkbox" data-com="noibat" data-table="product" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['noibat']==1) echo "checked";?> name="noibat" value="<?=$items[$i]['id']?>" class="check_box" />
+				</td>
+				<td align="center">
+					<input type="checkbox" data-com="hocthu" data-table="product" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['hocthu']==1) echo "checked";?> name="hocthu" value="<?=$items[$i]['id']?>" class="check_box" />
 				</td>
 				<td class="actBtns">
 					<a href="default.php?com=product&act=edit&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&id_list=<?=$items[$i]['id_list']?>&id_parent=<?=$items[$i]['list_id']?>" title="" class="smallButton tipS" original-title="Sửa dịch vụ"><img src="./images/icons/dark/pencil.png" alt=""></a>

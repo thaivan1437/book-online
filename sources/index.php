@@ -20,13 +20,13 @@ $d->query("select id, ten_$lang as ten, tenkhongdau, photo, mota_$lang as mota f
 $vechungtoi2 = $d->result_array();
 
 $d->reset();
-$sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3 as link from #_time where type='hoc-vien-danh-gia'";
+$sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3 as link from #_about where type='hoc-vien-danh-gia'";
 $d->query($sql);
-$hvdg=$d->fetch_array();
+$hvdg=$d->result_array();
 
 
 $d->reset();
-$sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,rate, luot_rate, id_list, mota_$lang as mota, spkm, masp, spbc,type from #_product where hienthi=1 and noibat=1 and type='khoa-hoc' order by stt, id desc limit 0,3";
+$sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,type,hinhthuc,ngaykhaigiang,giohoc,lichhoc from #_product_list where hienthi=1 and noibat=1 and com=2 and type='khoa-hoc' order by stt, id desc limit 0,3";
 $d->query($sql);
 $product = $d->result_array();
 
@@ -41,7 +41,7 @@ $d->query($sql);
 $videokh=$d->fetch_array();
 
 $d->reset();
-$sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,rate, luot_rate, id_list, mota_$lang as mota, spkm, masp, spbc,type from #_product where hienthi=1 and noibat=1 and type='video-khoa-hoc' order by stt, id desc limit 0,2";
+$sql = "select ten_$lang as ten,id,tenkhongdau,thumb,photo,gia,giakm,type,hinhthuc,ngaykhaigiang,giohoc,lichhoc from #_product_list where hienthi=1 and noibat=1 and com=2 and type='video-khoa-hoc' order by stt, id desc limit 0,2";
 $d->query($sql);
 $videokhnb = $d->result_array();
 
@@ -78,7 +78,7 @@ $videokhnb = $d->result_array();
 // $dnvb = $d->result_array();
 
 $d->reset();
-$sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3 as link from #_time where type='tai-lieu-giao-trinh'";
+$sql="select ten_$lang as ten, tenkhongdau, id, mota_$lang as mota, photo, h3, video from #_time where type='tai-lieu-giao-trinh'";
 $d->query($sql);
 $bdht=$d->fetch_array();
 ?>

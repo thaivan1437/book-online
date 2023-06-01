@@ -224,11 +224,12 @@
 #cssmenu.small-screen ul {
     width: 100%;
     display: none;
-    background: rgb(0 80 47);
+    background: rgb(76 45 118);
     text-align: left;
     position: fixed;
     left: 0;
     top: 42px;
+    z-index: 999999;
 }
 #cssmenu.small-screen.align-center > ul {
     text-align: left;
@@ -268,7 +269,10 @@
 }
 #cssmenu.small-screen ul ul li a {
     background: none;
-    color: black;
+    color: #fff;
+}
+#cssmenu.small-screen ul ul li:first-child {
+    border: 0;
 }
 #cssmenu.small-screen ul ul li:hover > a,
 #cssmenu.small-screen ul ul li.active > a {
@@ -289,7 +293,10 @@
 #cssmenu.small-screen ul ul > li.has-sub > a:before {
     display: none;
 }
-
+#cssmenu.small-screen ul ul {
+  top: 0;
+  padding: 0;
+}
 
 #cssmenu.small-screen #menu-button {
     display: block;

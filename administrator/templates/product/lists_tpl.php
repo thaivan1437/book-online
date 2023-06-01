@@ -97,7 +97,8 @@
 				<td width="150">Hình ảnh</td>
 				<td class="sortCol"><div>Tên sản phẩm<span></span></div></td>
 				<td class="tb_data_small">Ẩn/Hiện</td>
-				<td width="100">Nổi bật</td>
+				<td class="tb_data_small">Nổi bật</td>
+				<td width="100">Sách cho ai</td>
 				<td width="100">Thao tác</td>
 			</tr>
 		</thead>
@@ -129,6 +130,9 @@
 				</td>
 				<td align="center">
 					<input type="checkbox" data-com="noibat" data-table="product_list" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['noibat']==1) echo "checked";?> name="noibat" value="<?=$items[$i]['id']?>" class="check_box" />
+				</td>
+				<td align="center">
+					<a href="default.php?com=product&act=man_tab&idc=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
 				</td>
 				<td class="actBtns">
 					<a href="default.php?com=product&act=edit_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>&id_list=<?= $items[$i]['id_parent'] ?>&id_parent=<?=$items[$i]["set_level"]?>&id_gv=<?= $items[$i]['id_giangvien'] ?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>

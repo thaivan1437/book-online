@@ -34,6 +34,13 @@
 		<div id="info" class="tab_content">
 			<input type="hidden" name="id" id="id_this_about" value="<?=@$item['id']?>" />
 			<div class="formRow">
+				<label>Link: </label>
+				<div class="formRight">
+					<input type="text" id="video" name="video" value="<?=@$item['video']?>"  title="Nhập thẻ heading 1" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div> 
+			<div class="formRow">
 				<label>Thẻ H1: </label>
 				<div class="formRight">
 					<input type="text" id="h1" name="h1" value="<?=@$item['h1']?>"  title="Nhập thẻ heading 1" class="tipS" />

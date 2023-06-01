@@ -339,6 +339,8 @@ function save_item() {
     $data['description_jp'] = $_POST['description_jp'];
     $data['stt'] = $_POST['stt'];
     $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
+    $data['hocthu'] = isset($_POST['hocthu']) ? 1 : 0;
+
     $data['h1'] = $_POST['h1'];
     $data['h2'] = $_POST['h2'];
     $data['h3'] = $_POST['h3'];
@@ -626,7 +628,7 @@ function get_lists() {
 }
 
 function get_list() {
-    global $d, $item, $type,$subcat;
+    global $d, $item, $type,$subcat, $ds_photo1;
     $id = isset($_GET['id']) ? themdau($_GET['id']) : "";
     if (!$id)
         transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
@@ -635,11 +637,20 @@ function get_list() {
     if ($d->num_rows() == 0)
         transfer("Dữ liệu không có thực", "default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
     $item = $d->fetch_array();
+
+    $d->reset();
+    $sql_images="select * from #_product_hinhanh where id_photo='".$id."' order by stt, id desc ";
+    $d->query($sql_images);
+    // print_r($d);
+    $ds_photo1=$d->result_array();
+    // print_r($ds_photo1);
 }
 
 function save_list() {
     global $d, $type,$subcat;
-    $file_name = fns_Rand_digit(0, 9, 12); $file_name1 = fns_Rand_digit(0, 9, 12);
+    $file_name = fns_Rand_digit(0, 9, 12);
+    $file_name1 = fns_Rand_digit(0, 9, 12);
+    $file_name2 = fns_Rand_digit(0, 9, 12);
     if (empty($_POST))
         transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
     $id = isset($_POST['id']) ? themdau($_POST['id']) : "";
@@ -669,6 +680,24 @@ function save_list() {
     $data['h1'] = $_POST['h1'];
     $data['h2'] = $_POST['h2'];
     $data['h3'] = $_POST['h3'];
+
+    $data['gia'] = $_POST['gia'];
+    $data['giakm'] = $_POST['giakm'];
+    $data['hinhthuc'] = $_POST['hinhthuc'];
+    $data['ngaykhaigiang'] = $_POST['ngaykhaigiang'];
+    $data['giohoc'] = $_POST['giohoc'];
+    $data['lichhoc'] = $_POST['lichhoc'];
+
+    $data['mtkh'] = magic_quote($_POST['mtkh']);
+    $data['ctkm'] = magic_quote($_POST['ctkm']);
+    $data['mtkh_video'] = magic_quote($_POST['mtkh_video']);
+    $data['result_kh'] = magic_quote($_POST['result_kh']);
+    $data['sobuoihoc'] = magic_quote($_POST['sobuoihoc']);
+    $data['diadiem'] = magic_quote($_POST['diadiem']);
+
+
+
+
     if ($id) {
         if ($photo = upload_image("file", 'jpg|png|gif|JPG|jpeg|JPEG', _upload_product, $file_name)) {
             $data['photo'] = $photo;
@@ -707,10 +736,35 @@ function save_list() {
         
         $d->setTable('product_list');
         $d->setWhere('id', $id);
-        if ($d->update($data))
+        if ($d->update($data)) {
+            //Xử lý hình ảnh kèm theo
+            if (isset($_FILES['files'])) {
+                $myFile = $_FILES['files'];
+                
+                $fileCount = count($myFile["name"]);
+                $file_name=fns_Rand_digit(0,9,6);
+                
+                for ($i = 0; $i < $fileCount; $i++) { 
+                    $file_info = getimagesize($myFile['tmp_name'][$i]);
+                    if(empty($file_info)) // No Image?
+                    {
+                        $error .= "Không đúng định dạng file hình";
+                    }else{//A Image
+                        if(move_uploaded_file($myFile["tmp_name"][$i], _upload_product."/".$file_name.$myFile["name"][$i])){                                                
+                            $data1['stt'] = (int)$_POST['stthinh'][$i];
+                            $data1['photo'] = $file_name.$myFile["name"][$i];   
+                            $data1['id_photo'] = $id;
+                            $data1['hienthi'] = 1;
+                            $d->setTable('product_hinhanh');
+                            $d->insert($data1);
+                        }
+                    }
+                }
+            }
             redirect("default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."&curPage=" . $_REQUEST['curPage'] . "");
-        else
+        } else {
             transfer("Cập nhật dữ liệu bị lỗi", "default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
+        }
     }else {
         
         if ($photo = upload_image("file", 'jpg|png|gif|JPG|jpeg|JPEG', _upload_product, $file_name)) {
@@ -736,10 +790,34 @@ function save_list() {
         $data['ngaytao'] = time();
 
         $d->setTable('product_list');
-        if ($d->insert($data))
+        if ($d->insert($data)) {
+            $id_insert = $d->insert_id;
+            //Xử lý hình ảnh kèm theo
+            if (isset($_FILES['files'])) {
+                $myFile = $_FILES['files'];
+                $fileCount = count($myFile["name"]);
+                $file_name=fns_Rand_digit(0,9,6);               
+                for ($i = 0; $i < $fileCount; $i++) { 
+                    $file_info = getimagesize($myFile['tmp_name'][$i]);
+                if(empty($file_info)) // No Image?
+                    {
+                        $error .= "Không đúng định dạng file hình";
+                    }else{//A Image
+                        if(move_uploaded_file($myFile["tmp_name"][$i], _upload_product."/".$file_name."_".$myFile["name"][$i])){                                                
+                            $data1['stt'] = (int)$_POST['stthinh'][$i];
+                            $data1['photo'] = $file_name."_".$myFile["name"][$i];   
+                            $data1['id_photo'] = $id_insert;
+                            $data1['hienthi'] = 1;
+                            $d->setTable('product_hinhanh');
+                            $d->insert($data1);
+                        }
+                    }
+                }
+            }
             redirect("default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
-        else
+        } else {
             transfer("Lưu dữ liệu bị lỗi", "default.php?com=product&act=man_list&type=".$type."&subcat=".$subcat."");
+        }
     }
 }
 
@@ -943,13 +1021,25 @@ function get_tab() {
 }
 
 function save_tab() {
-    global $d;
+    global $d, $subcat;
     $file_name = fns_Rand_digit(0, 9, 10);
     if (empty($_POST))
         transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
 
     $id = isset($_POST['id']) ? themdau($_POST['id']) : "";
     if ($id) { // cap nhat
+
+
+        if ($photo = upload_image("file", 'jpg|png|gif|JPG|jpeg|Jpg|JPEG', _upload_product, $file_name)) {
+            $data['photo'] = $photo;
+            $d->setTable('product_hinhanh');
+            $d->setWhere('id', $id);
+            $d->select();
+            if ($d->num_rows() > 0) {
+                $row = $d->fetch_array();
+                delete_file(_upload . $row['photo']);
+            }
+        }
         
         $data['id'] = $_REQUEST['id'];
         $data['ten_vi'] = $_POST['ten_vi'];
@@ -973,6 +1063,9 @@ function save_tab() {
         $data['noidung_en'] = $_POST['noidung_en'];
         $data['id_photo'] = $_REQUEST['idc'];
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
+        if ($photo = upload_image("file", 'jpg|png|gif|JPG|jpeg|JPEG', _upload_product, $file_name)) {
+            $data['photo'] = $photo;
+        }
         $d->setTable('product_tab');
         if (!$d->insert($data))
             transfer("Lưu dữ liệu bị lỗi", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");

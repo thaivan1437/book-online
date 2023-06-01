@@ -90,7 +90,7 @@
 			</div>
 
 
-			<div class="formRow">
+			<!-- <div class="formRow">
 				<label>Giá: </label>
 				<div class="formRight">
 					<input type="text" id="gia" name="gia" value="<?=@$item['gia']?>"  title="Giá" class="tipS" />
@@ -131,20 +131,20 @@
 					<input type="text" id="lichhoc" name="lichhoc" value="<?=@$item['lichhoc']?>"  title="Lịch học" class="tipS" />
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 			
-			<div class="formRow">
+	 	<div class="formRow">
 				<label>Hình ảnh đại diện: </label>
 				<div class="formRight">
 					<?php if ($_REQUEST['act']=='edit' && $item['photo']!='' ) { ?>
 					<img width="100" src="<?=_upload_product.$item['photo']?>">
-					<!--<a title="Xoá ảnh" href="default.php?com=product&act=delete_img&id=<?=@$item['id']?>">Xoá ảnh</a>-->
 					<br>
 					<?php }?>
 					<input type="file" id="file" name="file" /><img src="./images/question-button.png" alt="Upload hình" class="icon_question tipS" original-title="Tải hình đại diện cho dịch vụ (ảnh JPEG, GIF , JPG , PNG)">Width: 560px & height: 500px
 				</div>
 				<div class="clear"></div>
 			</div>
+			<!--
 			<div class="formRow">
 				<label>Hình ảnh kèm theo: </label>
 				<div class="formRight">
@@ -163,7 +163,8 @@
 					<?php }?>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
+
 			<div class="formRow">
 				<label>Tùy chọn: <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Check vào những tùy chọn "> </label>
 				<div class="formRight">
@@ -172,6 +173,15 @@
 				</div>
 				<div class="clear"></div>
 			</div>
+			<div class="formRow">
+				<label>Học thử: <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Check vào những tùy chọn "> </label>
+				<div class="formRight">
+					<input type="checkbox" name="hocthu" id="check2" value="1" <?=(!isset($item['hocthu']) || $item['hocthu']==1)?'checked="checked"':''?> />
+					<label for="check2">Học thử</label>           
+				</div>
+				<div class="clear"></div>
+			</div>
+
 			<div class="formRow">
 				<label>Số thứ tự: </label>
 				<div class="formRight">
@@ -190,23 +200,30 @@
 		<?php foreach ($config['lang'] as $key => $value) {?>
 
 		<div id="content_lang_<?=$key?>" class="tab_content">        
-            <div class="formRow">
+      <div class="formRow">
 				<label>Tên bài viết</label>
 				<div class="formRight">
 					<input type="text" name="ten_<?=$key?>" title="Nhập tên dịch vụ" id="ten_<?=$key?>" class="tipS" value="<?=@$item['ten_'.$key]?>" />
 				</div>
 				<div class="clear"></div>
-			</div>  
-
+			</div> 
 			<div class="formRow">
+				<label>Link video: </label>
+				<div class="formRight">
+					<input type="text" id="video" name="video" value="<?=@$item['video']?>"  title="Link video" class="tipS" />
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<!-- <div class="formRow">
 				<label>Quy cách (phân cách nhau bằng dấu phẩy)</label>
 				<div class="formRight">
 					<input type="text" name="tag_slug_<?=$key?>" title="Nhập quy cách" id="tag_slug_<?=$key?>" class="tipS" value="<?=@$item['tag_slug_'.$key]?>" />
 				</div>
 				<div class="clear"></div>
-			</div> 
+			</div>  -->
 
-			<div class="formRow">
+			<!-- <div class="formRow">
 				<label>Mô tả ngắn:<img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết mô tả ở đây"> </label>
 				<div class="formRight">
 					<textarea name="mota_<?=$key?>" rows="8" cols="60" class="editor" id="mota_<?=$key?>"><?=@$item['mota_'.$key]?></textarea>
@@ -214,21 +231,21 @@
 				<div class="clear"></div>
 			</div>  
 
-            <div class="formRow">
+      <div class="formRow">
 				<label>Thành phần: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết nội dung chính"> </label>
 				<div class="formRight">
 					<textarea name="noidung_<?=$key?>" rows="8" cols="60" class="editor" id="noidung_<?=$key?>"><?=@$item['noidung_'.$key]?></textarea>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 
-			<div class="formRow">
+			<!-- <div class="formRow">
 				<label>Hướng dẫn sử dụng: <img src="./images/question-button.png" alt="Chọn loại"  class="icon_que tipS" original-title="Viết nội dung chính"> </label>
 				<div class="formRight">
 					<textarea name="tag_<?=$key?>" rows="8" cols="60" class="editor" id="tag_<?=$key?>"><?=@$item['tag_'.$key]?></textarea>
 				</div>
 				<div class="clear"></div>
-			</div>
+			</div> -->
 
 			<div class="formRow">
 				<label>Title</label>

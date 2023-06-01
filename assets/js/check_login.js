@@ -16,12 +16,12 @@
 }
 function check_email(email)
 {
-    emailRegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.([a-z]){2,4})$/;
+    emailRegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*\+?@[a-z0-9-]+(\.[a-z0-9-]+)*(\.([a-z]){2,4})$/;
     return emailRegExp.test(email);
 }
 
 function validEmail(email){
-	emailRegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.([a-z]){2,4})$/;
+	emailRegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*\+?@[a-z0-9-]+(\.[a-z0-9-]+)*(\.([a-z]){2,4})$/;
     return emailRegExp.test(email);
 }
 	
@@ -184,12 +184,12 @@ function check()
         $('#RegLoading').hide();
         return false;
     }
-    if (!validEmail(frm.email.value)) {
-        alert('Vui lòng nhập đúng địa chỉ email');
-        frm.email.focus();
-        $('#RegLoading').hide();
-        return false;
-    }
+    // if (!validEmail(frm.email.value)) {
+    //     alert('Vui lòng nhập đúng địa chỉ email');
+    //     frm.email.focus();
+    //     $('#RegLoading').hide();
+    //     return false;
+    // }
 	if (frm.capt.value == '')
     {
         alert("Bạn chưa nhập mã bảo vệ");
@@ -281,6 +281,19 @@ function check_kh()
 		}
 		
     });
+}
+
+function logout() {
+	$.ajax({
+		type:'post',
+		url:"ajax/user.php",
+		data:{act:'logout'},
+		success:function(data){
+			alert("Đăng xuất thành công!");
+			setTimeout(function(){location.href=base_url;}, 1000);
+		}
+	})
+	return false;
 }
 
 function finishAjax_login(id, response) {
@@ -563,18 +576,7 @@ function check_doipass()
     }
     );
 }
-function logout() {
-	$.ajax({
-		type:'post',
-		url:"ajax/user.php",
-		data:{act:'logout'},
-		success:function(data){
-			alert("Đăng xuất thành công!");
-			setTimeout(function(){location.href=base_url;}, 1000);
-		}
-	})
-	return false;
-}
+
 function changePass(id) {
 	var matkhauCu = $("#matkhau_cu").val();
 	var matkhauMoi = $("#matkhau_moi").val();

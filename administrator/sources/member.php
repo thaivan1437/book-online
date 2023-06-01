@@ -161,6 +161,7 @@ function get_lists() {
     $sql.=" order by stt,id desc";
 
     $d->query($sql);
+    // print_r($sql);
     $items = $d->result_array();
 
     $curPage = isset($_GET['curPage']) ? $_GET['curPage'] : 1;

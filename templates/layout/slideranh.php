@@ -31,7 +31,7 @@ $bannerHome = $d->result_array();
 		<?php } ?>
 	</div>
 	<div class="container">
-		<div class="d-grid">
+		<div class="d-grid custom">
 			<?php foreach($bannerHome as $v) { ?>
 				<a href="<?=$v["link"]?>" class="d-block">
 					<img src="<?=_upload_hinhanh_l.$v["photo"]?>" alt="<?=$v["ten"]?>" class="img-fluid img-100">

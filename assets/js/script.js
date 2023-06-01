@@ -75,7 +75,13 @@ function loadToCart(id,sl){
 		type:'post',
 		url:"gio-hang",
 		data:{id:id,sl:sl,act:'add'},
-		success:function(data){
+		success:function(data) {
+			console.log(data);
+			if (data && data.isLogin) {
+				swal("Lỗi", "Bạn cần đăng nhập trước.", "error");
+				return false;
+			}
+			
 			location.href = "gio-hang.html";
 		}
 	});
@@ -355,18 +361,17 @@ $('.slick-brand').slick({
 		// instead of a settings object
 	]
 });
-$('.slick-product1').slick({
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	arrows: true,
-	dots: false,
-	fade: true,
-	asNavFor: '.slick-product2'
-});
+// $('.slick-product1').slick({
+// 	slidesToShow: 1,
+// 	slidesToScroll: 1,
+// 	arrows: true,
+// 	dots: false,
+// 	fade: true,
+// 	asNavFor: '.slick-product2'
+// });
 	$('.slick-product2').slick({
 	slidesToShow: 3,
 	slidesToScroll: 1,
-	asNavFor: '.slick-product1',
 	dots: false,
 	arrows: false,
 	centerMode: true,
@@ -401,326 +406,328 @@ $('.slick-product1').slick({
 		// instead of a settings object
 	]
 });
-$('.slick-community').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-cook').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: true,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-productlist').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 769,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-community2').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-marketing1').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 6,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-marketing2').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-related').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: false,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
-$('.slick-cook2').slick({
-	lazyLoad: 'ondemand',
-	slidesToShow: 3,
-	slidesToScroll: 1,
-	autoplay:true,
-	autoplaySpeed:4000,
-	accessibility: false,
-	pauseOnHover:true,
-	//vertical:true,
-	//verticalSwiping:true,
-	dots: false,
-	arrows: true,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			infinite: true,
-			}
-		},
-		{
-			breakpoint: 601,
-			settings: {
-			slidesToShow: 2,
-			slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 481,
-			settings: {
-			slidesToShow: 1,
-			slidesToScroll: 1
-			}
-		}
-		// You can unslick at a given breakpoint now by adding:
-		// settings: "unslick"
-		// instead of a settings object
-	]
-});
+// $('.slick-product2').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 3,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	centerMpd:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	infinite: true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-cook').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 3,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: true,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-productlist').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 3,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 769,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-community2').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 4,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-marketing1').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 6,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 4,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-marketing2').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 4,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-related').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 4,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: false,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
+// $('.slick-cook2').slick({
+// 	lazyLoad: 'ondemand',
+// 	slidesToShow: 3,
+// 	slidesToScroll: 1,
+// 	autoplay:true,
+// 	autoplaySpeed:4000,
+// 	accessibility: false,
+// 	pauseOnHover:true,
+// 	//vertical:true,
+// 	//verticalSwiping:true,
+// 	dots: false,
+// 	arrows: true,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1024,
+// 			settings: {
+// 			slidesToShow: 3,
+// 			slidesToScroll: 1,
+// 			infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 601,
+// 			settings: {
+// 			slidesToShow: 2,
+// 			slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 481,
+// 			settings: {
+// 			slidesToShow: 1,
+// 			slidesToScroll: 1
+// 			}
+// 		}
+// 		// You can unslick at a given breakpoint now by adding:
+// 		// settings: "unslick"
+// 		// instead of a settings object
+// 	]
+// });
 // panel collapse event
 $(".product-card-head-js").click(function() {
 	if($(this).hasClass("active")) {
@@ -1023,3 +1030,15 @@ $('.dnvb-search-js').click( delay(function(e) {
 		}
 	});
 }, 500));
+
+
+$(window).scroll(function(){
+	var scrollTop  = $(window).scrollTop();
+	if(scrollTop > 35){
+		$('header').addClass('fixed');
+		$(".main").css({"margin-top":$("header").height()})
+	}else{
+		$('header').removeClass('fixed');
+		$(".main").css({"margin-top":"0px"})
+	}
+})

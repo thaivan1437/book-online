@@ -2,7 +2,7 @@
 
 if(!defined('_lib')) die("Error");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
-$config_url=$_SERVER["SERVER_NAME"].'/book-online';
+$config_url=$_SERVER["SERVER_NAME"].'';
 
 $config['key']='13250889bd58bf0c3da9048abb001f41';
 $config['pattern']=2;
@@ -22,9 +22,9 @@ $config['lang']=array('vi'=>'Tiếng Việt');#Danh sách ngôn ngữ hỗ trợ
 $config['lang_default'] = 'vi';#Ngôn ngữ mặc định
 
 $config['database']['servername'] = 'localhost';
-$config['database']['username'] = 'root';#Tên đăng nhập database
-$config['database']['password'] = '';#Mật khẩu đăng nhập database
-$config['database']['database'] = 'bsa';#Tên database
+$config['database']['username'] = 'hoaithuong_db';#Tên đăng nhập database
+$config['database']['password'] = 'Bell@123';#Mật khẩu đăng nhập database
+$config['database']['database'] = 'hoaithuong_db';#Tên database
 $config['database']['refix'] = 'table_';
 
 //Config Firewall 
@@ -39,6 +39,6 @@ $fw_conf['ip_allow']='';
 $fw_conf['ip_deny']='';
 
 $iphost = '127.0.0.1';
-$userhost = 'contact@thietkewebhct.site';
-$passhost = 'bsafood@123';
+$userhost = 'info@drhoaithuong.com';
+$passhost = 'vEuMq78T';
 ?>

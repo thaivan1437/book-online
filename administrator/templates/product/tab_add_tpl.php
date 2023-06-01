@@ -64,6 +64,17 @@
 		<div id="info" class="tab_content">
 			<input type="hidden" name="id" id="id_this_product" value="<?=@$item['id']?>" />
 			<div class="formRow">
+				<label>Hình ảnh đại diện: </label>
+				<div class="formRight">
+					<?php if ($item['photo']!='' ) { ?>
+					<img width="100" src="<?=_upload_product.$item['photo']?>">
+					<br>
+					<?php }?>
+					<input type="file" id="file" name="file" /><img src="./images/question-button.png" alt="Upload hình" class="icon_question tipS" original-title="Tải hình đại diện cho dịch vụ (ảnh JPEG, GIF , JPG , PNG)">Width: 560px & height: 500px
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="formRow">
 				<label>Tùy chọn: <img src="./images/question-button.png" alt="Chọn loại" class="icon_que tipS" original-title="Check vào những tùy chọn "> </label>
 				<div class="formRight">
 					<input type="checkbox" name="is_noindex" id="check2" <?=(!isset($item['is_noindex']) || $item['is_noindex']==1)?'checked="checked"':''?> />

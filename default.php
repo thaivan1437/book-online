@@ -45,7 +45,7 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 		<meta name="DC.title" content="<?= ($title_custom != '') ? $title_custom : $row_setting['title_' . $lang] ?>" />
 		<meta name="DC.language" scheme="utf-8" content="vi" />
 		<meta name="DC.identifier" content="<?= $row_setting['website'] ?>" />
-		<meta name="robots" content="noodp,index,follow" />
+		<meta name="robots" content="noodp,noindex,nofollow" />
 		<meta name='revisit-after' content='1 days' />
 		<meta http-equiv="content-language" content="vi" />
 		<meta property="og:site_name" content="<?= ($title_custom != '') ? $title_custom : $row_setting['title_' . $lang] ?>" />
@@ -58,7 +58,22 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 		<link href="<?= _upload_hinhanh_l . $row_setting['fav'] ?>" rel="shortcut icon" type="image/x-icon" />
 		<?php inlineCss("http://$config_url/assets/css/font.css") ?>
 		<?php inlineCss("http://$config_url/assets/css/critial.css") ?>
+
+
+		<link rel="stylesheet" type="text/css" href="assets/font/stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/js/aos/aos.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome-6.1/css/all.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/js/owlcarousel/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/mdb.min.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/js/menu/menumaker.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/js/slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/js/slick/slick-theme.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/style-tien.css"/>
 		<script src="assets/js/jquery.slim.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="assets/js/sweet-alert/sweet-alert.css"/>
+		
 		
 		<script>
 			var base_url = 'http://<?=$config_url?>';
@@ -73,11 +88,11 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 		<!-- end xuất mã google analytics -->
 	</head>
 	<body>
-		<div id="pre-loader" class="pre-loader">
+		<!-- <div id="pre-loader" class="pre-loader">
 			<div></div>
-		</div>
+		</div> -->
 		<div id="fb-root"></div>
-		<script>
+		<!-- <script>
 			(function (d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id))
@@ -87,7 +102,7 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 				js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=362166527297572&version=v2.0";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-		</script>
+		</script> -->
 		<header>
 			<section class="heading">
 				<?php if(!empty($h1_custom)) { ?>
@@ -144,7 +159,7 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 			<?php include _template . "layout/footer.php"; ?>
 		</footer><!-- End footer --> 
 
-		<script src="assets/js/init.js" defer></script>
+		<!-- <script src="assets/js/init.js" defer></script> -->
 
 		<div class="box_carts">
 			<div class="content">
@@ -213,6 +228,19 @@ $title_bar = (!empty($title_bar) ? $title_bar : $row_setting['title_' . $lang]);
 
 		<?php include _template . "layout/cloud_menu.php"; ?>
 
+		<script type="text/javascript" src="assets/js/aos/aos.js"></script>
+		<script type="text/javascript" src="assets/js/lazyload/lazyload.min.js"></script>
+		<script type="text/javascript" src="assets/js/menu/menumaker.js"></script>
+		<script type="text/javascript" src="assets/js/popper.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/js/mdb.min.js"></script>
+		<script type="text/javascript" src="assets/js/slick/slick.min.js"></script>
+		<script type="text/javascript" src="assets/js/sweet-alert/sweet-alert.js" defer></script>
+		<script type="text/javascript" src="assets/js/check_login.js"></script>
+		<script type="text/javascript" src="assets/js/script.js"></script>
+		<script>
+		  AOS.init();
+		</script>
 
 	</body>
 </html>

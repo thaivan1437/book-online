@@ -95,13 +95,13 @@ function del(id){
 			</div>
 			<div class="clear"></div>
 		</div>		        
-        <div class="formRow">
+        <!-- <div class="formRow">
 			<label>Địa chỉ</label>
 			<div class="formRight">
              <?=@$item['diachi']?>
 			</div>
 			<div class="clear"></div>
-		</div>
+		</div> -->
 		<div class="formRow">
 			<label>Email</label>
 			<div class="formRight">
@@ -109,13 +109,13 @@ function del(id){
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div class="formRow">
+		<!-- <div class="formRow">
 			<label>Phương thức vận chuyển</label>
 			<div class="formRight">
              <?=@$item['ptvc']?>
 			</div>
 			<div class="clear"></div>
-		</div>
+		</div> -->
 		<div class="formRow">
 			<label>Phương thức thanh toán</label>
 			<div class="formRight">
@@ -123,7 +123,7 @@ function del(id){
 			</div>
 			<div class="clear"></div>
 		</div>      
-        <div class="formRow">
+        <!-- <div class="formRow">
 			<label>Giao hàng tận nơi tại tỉnh / TP</label>
 			<div class="formRight">
              <?=@$item['tinh']?>
@@ -143,7 +143,7 @@ function del(id){
              <?=@$item['xa']?>
 			</div>
 			<div class="clear"></div>
-		</div>
+		</div> -->
     </div>
 
 	<div class="widget">

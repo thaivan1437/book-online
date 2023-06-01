@@ -20,9 +20,14 @@ $d->query("select id, ten_$lang as ten, tenkhongdau, photo, gia, giakm, type, ma
 $spnb = $d->result_array();
 
 $d->reset();
-$sql="select ten_$lang as ten, tenkhongdau, id, type, photo from #_product_list where com=1 and type='san-pham' and hienthi=1 order by stt, id desc";
+$sql="select ten_$lang as ten, tenkhongdau, id, type, photo from #_product_list where com=1 and type='khoa-hoc' and hienthi=1 order by stt, id desc";
 $d->query($sql);
 $rs_list=$d->result_array();
+
+$d->reset();
+$sql="select ten_$lang as ten, tenkhongdau, id, type, photo from #_product_list where com=1 and type='video-khoa-hoc' and hienthi=1 order by stt, id desc";
+$d->query($sql);
+$rs_list2=$d->result_array();
 ?>
 <?php /*
 <header class="header">
@@ -72,47 +77,94 @@ $rs_list=$d->result_array();
 
 <!-- header -->
 <header class="header">
-    <div class="container position-relative">
+    <div class="container position-relative an-mb">
         <div class="d-flex justify-content-between align-items-center">
-            <div class="">
-                <a href="" class="head-item">Facebook</a>
-                <a href="" class="head-item">Zalo</a>
-            </div>
-            <div class="">
-                <a href="mailto:hoaithuong@gmail.com" class="head-item">hoaithuong@gmail.com</a>
-            </div>
-        </div>
-        <a href="tel:12345678" class="head-hot">12345678</a>
-    </div>
-</header>
-<div class="head-menu">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center position-relative">
-            <div class="head-box">
-                <a href="khoa-hoc.html" class="text-uppercase menu-item">
-                    Khóa học
-                    <div class="header-submenu">
-                        <?php foreach($rs_list as $item) { ?>
-                            <div><a href="<?=$item['type']?>/<?=$item['tenkhongdau']?>-<?=$item['id']?>/"><?=$item['ten']?></a></div>
-                        <?php } ?>
-                    </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="<?=$row_setting["facebook"]?>" class="head-item d-flex align-items-center">
+                    <img src="assets/images/fb.png" alt="facebook" style="width: 35px; margin-right: 5px"> Facebook
                 </a>
-                <a href="video-khoa-hoc.html" class="text-uppercase menu-item">Bộ video bài giảng</a>
+                <a href="<?=$row_setting["zalo"]?>" class="head-item d-flex align-items-center">
+                    <img src="assets/images/zalo.png" alt="facebook" style="width: 35px; margin-right: 5px">
+                    Zalo
+                </a>
             </div>
-            <div class="logo">
-                <a href=""><img src="assets/images/logo.png" alt="logo" class="logo-img"></a>
-            </div>
-            <div class="head-box text-right">
-                <a href="giao-trinh.html" class="text-uppercase menu-item">Giáo trình</a>
-                <a href="" class="menu-item">Đăng ký</a>
-                <a href="" class="menu-item">Đăng nhập</a>
+            
+            <div class="">
+                <a href="mailto:<?=$row_setting["email"]?>" class="head-item d-flex align-items-center">
+                    <img src="assets/images/mail.png" alt="facebook" style="width: 35px; margin-right: 5px">
+                    <?=$row_setting["email"]?>
+                </a>
             </div>
         </div>
-        <div class="head-breadcrum">
-            <a href="/" class="head-breadcrum-item">Trang chủ</a>
-            <a href="" class="head-breadcrum-item">Giáo trình</a>
-            <a href="" class="head-breadcrum-item">Sách giáo trình</a>
+        <a href="tel:<?=$row_setting["hotline"]?>" class="head-hot an-mb"><?=$row_setting["hotline"]?></a>
+        
+    </div>
+    
+    <div class="head-menu an-mb">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center position-relative">
+                <div class="head-box d-flex justify-content-around align-items-center">
+
+                    <div class="header-item <?= ($com == 'khoa-hoc') ? 'active' : '' ?> ">
+                        <a href="khoa-hoc.html" class="text-uppercase menu-item">Khóa học <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <div class="header-submenu">
+                            <?php foreach($rs_list as $item) { ?>
+                                <div><a href="<?=$item['type']?>/<?=$item['tenkhongdau']?>-<?=$item['id']?>/"><?=$item['ten']?></a></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                    <div class="header-item <?= ($com == 'video-khoa-hoc') ? 'active' : '' ?> ">
+                        <a href="video-khoa-hoc.html" class="text-uppercase menu-item">Bộ video bài giảng <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <div class="header-submenu">
+                            <?php foreach($rs_list2 as $item) { ?>
+                                <div><a href="<?=$item['type']?>/<?=$item['tenkhongdau']?>-<?=$item['id']?>/"><?=$item['ten']?></a></div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="http://<?=$config_url?>"><img src="<?=_upload_hinhanh_l.$row_photo['logo']?>" alt="logo" class="logo-img"></a>
+                </div>
+                <div class="head-box text-right d-flex justify-content-between align-items-center">
+                    <a href="giao-trinh.html" class="text-uppercase menu-item">Giáo trình</a>
+
+
+                    <?php if(!empty($_SESSION['login_web'])) { ?>
+                        <a href="quan-ly-ca-nhan.html" class="menu-item d-flex align-items-center"><?=$_SESSION['login_web']['username']?></a> 
+                        <a onclick="logout()" class="menu-item d-flex align-items-center">Đăng xuất</a>
+                    <?php } else { ?>
+                        <a href="dang-ky.html" class="menu-item d-flex align-items-center">
+                            <img src="assets/images/sign-up.png" alt="facebook" style="width: 35px; margin-right: 5px">
+                            Đăng ký
+                        </a>
+                        <a href="dang-nhap.html" class="menu-item d-flex align-items-center">
+                            <img src="assets/images/sign-in.png" alt="facebook" style="width: 35px; margin-right: 5px">
+                            Đăng nhập
+                        </a>
+                    <?php } ?>
+
+                    
+                </div>
+            </div>
+            <div class="breadcrumb-arrow"><?=$breakcrumb?></div>
+            <!-- <div class="head-breadcrum">
+                <a href="/" class="head-breadcrum-item">Trang chủ</a>
+                <a href="" class="head-breadcrum-item">Giáo trình</a>
+                <a href="" class="head-breadcrum-item">Sách giáo trình</a>
+            </div> -->
         </div>
     </div>
-</div>
+    <div class="an-pc custom text-center d-flex position-relative align-items-center">
+        <div class="top-menu">
+            <nav id="cssmenu" class="wow fadeIn" data-wow-delay="0.7s">
+                <?php include _template . "layout/menu_top.php"; ?>
+            </nav>
+        </div>
+        <div class="logo">
+            <a href="http://<?=$config_url?>"><img src="<?=_upload_hinhanh_l.$row_photo['photo']?>" alt="logo" class="logo-img"></a>
+        </div>
+	</div>
+</header>
+
 <!-- header -->

@@ -21,7 +21,16 @@
         <div class="main-title">Cuốn sách này mang đến những gì cho bạn ?</div>
         <div class="main-title-img"><img src="assets/images/icon2.png" alt="icon" class="title-icon"></div>
         <div class="bookstore-contain break-1024">
-            <a href="" class="bookstore-box">
+            <?php foreach($rs_book as $k => $v) {?>
+                <div class="bookstore-box">
+                    <div class="bookstore-img-div">
+                        <img src="<?=_upload_tintuc_l.$v["photo"]?>" alt="book" class="bookstore-img">
+                    </div>
+                    <div class="bookstore-name1"><?=$v["mota"]?></div>
+                    <div class="bookstore-name2"><?=$v["ten"]?></div>
+                </div>
+            <?php } ?>
+            <!-- <a href="" class="bookstore-box">
                 <div class="bookstore-img-div">
                     <img src="assets/images/i1.png" alt="book" class="bookstore-img">
                 </div>
@@ -62,7 +71,7 @@
                 </div>
                 <div class="bookstore-name1">Giảm 10%</div>
                 <div class="bookstore-name2">Khi đăng ký sớm</div>
-            </a>
+            </a> -->
         </div>
         <div class="text-center">
             <div class="book-btn">Đặt ngay nhận trọn bộ quà</div>
@@ -74,14 +83,17 @@
         <div class="main-title2">Bạn sẽ tự tin làm chủ tay nghề sau 50 ngày với sách học Botox</div>
         <div class="main-title-img"><img src="assets/images/icon1.png" alt="icon" class="title-icon"></div>
         <div class="bookstore-contain">
-            <div class="">
-                <div class="text-center mb-2">
-                    <img src="assets/images/ic1.png" alt="icon" class="bookstore2-img">
+            <?php foreach ($rs_taynghe as $k => $v) { ?>
+                <div class="">
+                    <div class="text-center mb-2">
+                        <img src="<?=_upload_tintuc_l.$v["photo"]?>" alt="icon" class="bookstore2-img">
+                    </div>
+                    <div class="bookstore2-name"><?=$v["ten"]?></div>
+                    <div class="bookstore2-desc"><?=$v["mota"]?></div>
                 </div>
-                <div class="bookstore2-name">Đủ những kỹ năng cần thiết</div>
-                <div class="bookstore2-desc">Lorem dolor asit raimetr ruidm oiamr, ruiow pipowr uifm opiqm usuhr iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa.</div>
-            </div>
-            <div class="">
+            <?php }?>
+            
+            <!-- <div class="">
                 <div class="text-center mb-2">
                     <img src="assets/images/ic3.png" alt="icon" class="bookstore2-img">
                 </div>
@@ -94,7 +106,7 @@
                 </div>
                 <div class="bookstore2-name">Tiến bộ thần tốc sau 50 ngày</div>
                 <div class="bookstore2-desc">Lorem dolor asit raimetr ruidm oiamr, ruiow pipowr uifm opiqm usuhr iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa.</div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -110,7 +122,29 @@
 </div>
 <div class="bookstore2">
     <div class="container">
-        <div class="ziczac-box">
+		<div class="ziczac-box">
+			<div class="ziczac-left">
+				<img src="<?=_upload_tintuc_l.$rs_book[0]["photo"]?>" alt="dep" class="img-100" />
+			</div>
+			<div class="ziczac-right">
+				<div class="ziczac-title"><?=$rs_book[0]["ten"]?></div>
+				<div class="ziczac-desc">
+					<?=$rs_book[0]["mota"]?>
+				</div>
+			</div>
+		</div>
+		<div class="ziczac-box">
+			<div class="ziczac-right">
+				<div class="ziczac-title"><?=$rs_book[1]["ten"]?></div>
+				<div class="ziczac-desc">
+					<?=$rs_book[1]["mota"]?>
+				</div>
+			</div>
+			<div class="ziczac-left">
+				<img src="<?=_upload_tintuc_l.$rs_book[1]["photo"]?>" alt="dep" class="img-100" />
+			</div>
+		</div>
+        <!-- <div class="ziczac-box">
             <div class="ziczac-left">
                 <img src="assets/images/h1.jpg" alt="dep" class="img-100">
             </div>
@@ -141,8 +175,8 @@
             <div class="ziczac-left">
                 <img src="assets/images/h2.jpg" alt="dep" class="img-100">
             </div>
-        </div>
-    </div>
+        </div> -->
+	</div>
 </div>
 <div class="main-bg2 bookstore3">
     <div class="container">
@@ -172,18 +206,21 @@
             </div>
             <div class="bookstore4-right">
                 <div class="slick-banner">
-                    <div class="">
-                        <div class="d-flex flex-wrap justify-content-between align-items-center">
-                            <div class="gvien-left">
-                                <img src="assets/images/i3.png" alt="ykien" class="img-100">
-                            </div>
-                            <div class="gvien-right">
-                                <div class="gvien-name">Học viên Như thùy</div>
-                                <div class="">Lorem dolor asit raimetr ruidm oiamr, ruiow pipowr uifm opiqm usuhr iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa.</div>
+                    <?php foreach ($rs_danhgia as $k => $v) {?>
+                        <div class="">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <div class="gvien-left">
+                                    <img src="<?=_upload_tintuc_l.$v["photo"]?>" alt="ykien" class="img-100">
+                                </div>
+                                <div class="gvien-right">
+                                    <div class="gvien-name"><?=$v["ten"]?></div>
+                                    <div class=""><?=$v["mota"]?></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="">
+                    <?php } ?>
+                   
+                    <!-- <div class="">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <div class="gvien-left">
                                 <img src="assets/images/i3.png" alt="ykien" class="img-100">
@@ -193,7 +230,7 @@
                                 <div class="">Lorem dolor asit raimetr ruidm oiamr, ruiow pipowr uifm opiqm usuhr iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. Lorem dolor asit raimetr ruidm oiamr, ruiow pipowr uifm opiqm usuhr iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa. iowj aiudhf eagbf woi awoeur eyha, fwu aoid eryaa.</div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -204,14 +241,17 @@
         <div class="main-title2">FAQ</div>
         <div class="main-title-img"><img src="assets/images/icon1.png" alt="icon" class="title-icon"></div>
         <div class="faq-contain">
-            <div class="cauhoi-box">
-                <div class="cauhoi-name">Thủ tục hành chính</div>
-                <div class="cauhoi-desc">
-                    Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw.
+            <?php foreach ($rs_danhgia as $k => $v) {?>
+                <div class="cauhoi-box">
+                    <div class="cauhoi-name"><?=$v["ten"]?></div>
+                    <div class="cauhoi-desc">
+                        <?=$v["mota"]?>
+                    </div>
+                    <div class="cauhoi-icon"></div>
                 </div>
-                <div class="cauhoi-icon"></div>
-            </div>
-            <div class="cauhoi-box">
+            <?php } ?>
+            
+            <!-- <div class="cauhoi-box">
                 <div class="cauhoi-name">Học tập: thủ tục bảo lưu, học vụ, thi lại...</div>
                 <div class="cauhoi-desc">
                     Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw.
@@ -238,7 +278,7 @@
                     Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw. Lorem dolor asit raimeuf oiwmz poiuwn fhia oipmx fuiwo oipam ufndw iunf wyuao hdfwo aijsn, dfwu ausn eiur zoipqj znfje uawo aidun dfbiw adiunfw dafhw.
                 </div>
                 <div class="cauhoi-icon"></div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

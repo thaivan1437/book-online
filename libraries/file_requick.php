@@ -32,20 +32,31 @@ switch ($com) {
         $template = "index";
         break;
     case 'giao-trinh':
-        $source = "";
+        $source = "giaotrinh";
+        $title_bar = "Giáo trình";
+		$title_tcat = "Giáo trình";
         $template = "book";
+        break;
+    
+    case 'gio-hang':
+        $source = "giohang";
+        $template = "giohang";
         break;
 
     case 'video-khoa-hoc':
         $source = "product";
+        $title_bar = "Video khóa học";
+		$title_tcat = "Video khóa học";
         $type='video-khoa-hoc';
-        $template = isset($_GET['id']) ? "product_video" : "video_khoa_hoc";
+        $template = isset($_GET['idc']) ? "product_video_detail" : "video_khoa_hoc";
         break;
     
     case 'khoa-hoc':
         $source = "product";
         $type='khoa-hoc';
-        $template = isset($_GET['id']) ? "product_khoa_hoc" : "video_khoa_hoc";
+        $title_bar = "Khóa học";
+		$title_tcat = "Khóa học";
+        $template = isset($_GET['idc']) ? "product_khoa_hoc_detail" : "video_khoa_hoc";
         break;
 
     case 'chung-toi-la-ai':
@@ -121,6 +132,28 @@ switch ($com) {
 	case 'video':
         $source = "video";
         $template = "video";
+        break;
+
+    case 'dang-ky':
+        $source = "dangki";
+        $template = "dangki";
+        break;
+	case 'dang-nhap':
+        $source = "dangnhap";
+        $template = "dangnhap";
+        break;
+	case 'quan-ly-ca-nhan':
+        $source = "quanlycanhan";
+        $template = "quanlycanhan";
+        break;
+	case 'doi-mat-khau':
+        $source = "doimatkhau";
+        $template = "doimatkhau";
+        break;
+    
+    case 'thanh-toan':
+        $source = "thanhtoan";
+        $template = "thanhtoan";
         break;
 
     case 'tim-kiem':

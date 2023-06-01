@@ -1,10 +1,10 @@
-
+<link href="assets/css/login_register.css" media="all" rel="stylesheet" type="text/css" />
 <div class="box_content">
 	<div class="box_login_acoun">
 		<div class="head">Đăng nhập hệ thống</div>
 		<div class="content">
 			<form role="form" action="" method="post" enctype="multipart/form-data" name="dangnhap" id="dangnhap" onsubmit="return login_check();">
-				<div class="form-group clear">
+				<div class="form-group clear mb-3">
 					<div class="row">
 						<label for="recipient-name" class="col-sm-3 col-12 control-label">Tài khoản</label>
 						<div class="col-sm-9 col-12">
@@ -30,10 +30,11 @@
 				</div>
 				<div class="text-center">
 					
-					<button type="button" class="btn btn-primary" onclick="return login_check();">Đăng nhập</button>
+					<button type="button" class="btn btn-primary bgcolor1" onclick="return login_check();">Đăng nhập</button>
 				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
+<script type="text/javascript" src="assets/js/check_login.js"></script>

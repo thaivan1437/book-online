@@ -10,10 +10,16 @@ $breakcrumb='<li><a href="http://'.$config_url.'">'._trangchu.'</a></li><li clas
 if (isAjaxRequest()) {
 
     if ($_POST['act'] == "add") {
+		if(empty($_SESSION['login_web'])) {
+			$rs["isLogin"] = false;
+			echo json_encode($rs);
+			die();
+		}
 
         addtocart($_POST['id'], $_POST['sl'],$_POST["size"],$_POST["color"]);
+		// dump($_POST);
 		$d->reset();
-		$sql="select ten_$lang as ten, id, photo from #_product where id='".$_POST["id"]."'";
+		$sql="select ten_$lang as ten, id, photo from #_product_list where id='".$_POST["id"]."'";
 		$d->query($sql);
 		$result=$d->fetch_array();
 		$rs["mes"]='<div class="images">
