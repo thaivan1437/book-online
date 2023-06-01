@@ -974,7 +974,7 @@ function delete_photo() {
         transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_photo&idc=" . $_REQUEST['idc'] . "&subcat=".$subcat);
 }
 function get_tabs() {
-    global $d, $items, $paging;
+    global $d, $items, $paging, $type;
     #----------------------------------------------------------------------------------------
     if ($_REQUEST['hienthi'] != '') {
         $id_up = $_REQUEST['hienthi'];
@@ -993,12 +993,12 @@ function get_tabs() {
 
 
 
-    $sql = "select * from #_product_tab where ( id_photo = '" . $_REQUEST['idc'] . "' OR '" . $_REQUEST['idc'] . "'=0  ) order by stt,id desc ";
+    $sql = "select * from #_product_tab where ( id_photo = '" . $_REQUEST['idc'] . "' OR '" . $_REQUEST['idc'] . "'=0  ) and com = '".$type."' order by stt,id desc ";
     $d->query($sql);
     $items = $d->result_array();
 
     $curPage = isset($_GET['curPage']) ? $_GET['curPage'] : 1;
-    $url = "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "";
+    $url = "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "";
     $maxR = 10;
     $maxP = 4;
     $paging = paging($items, $url, $curPage, $maxR, $maxP);
@@ -1006,25 +1006,25 @@ function get_tabs() {
 }
 
 function get_tab() {
-    global $d, $item, $list_cat;
+    global $d, $item, $list_cat, $type;
     $id = isset($_GET['id']) ? themdau($_GET['id']) : "";
     if (!$id)
-        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
 
     $d->setTable('product_tab');
     $d->setWhere('id', $id);
     $d->select();
     if ($d->num_rows() == 0)
-        transfer("Dữ liệu không có thực", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+        transfer("Dữ liệu không có thực", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
     $item = $d->fetch_array();
     $d->reset();
 }
 
 function save_tab() {
-    global $d, $subcat;
+    global $d, $subcat, $type;
     $file_name = fns_Rand_digit(0, 9, 10);
     if (empty($_POST))
-        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
 
     $id = isset($_POST['id']) ? themdau($_POST['id']) : "";
     if ($id) { // cap nhat
@@ -1048,13 +1048,13 @@ function save_tab() {
         $data['noidung_en'] = $_POST['noidung_en'];
         $data['stt'] = $_POST['stt'];
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
-        $data['com'] = 'product';
+        $data['com'] = $type;
         $d->reset();
         $d->setTable('product_tab');
         $d->setWhere('id', $id);
         if (!$d->update($data))
-            transfer("Cập nhật dữ liệu bị lỗi", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
-        redirect("default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+            transfer("Cập nhật dữ liệu bị lỗi", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
+        redirect("default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
     } { // them moi
         $data['stt'] = $_POST['stt'];
         $data['ten_vi'] = $_POST['ten_vi'];
@@ -1063,19 +1063,20 @@ function save_tab() {
         $data['noidung_en'] = $_POST['noidung_en'];
         $data['id_photo'] = $_REQUEST['idc'];
         $data['hienthi'] = isset($_POST['hienthi']) ? 1 : 0;
+        $data['com'] = $type;
         if ($photo = upload_image("file", 'jpg|png|gif|JPG|jpeg|JPEG', _upload_product, $file_name)) {
             $data['photo'] = $photo;
         }
         $d->setTable('product_tab');
         if (!$d->insert($data))
-            transfer("Lưu dữ liệu bị lỗi", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+            transfer("Lưu dữ liệu bị lỗi", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
         else
-        redirect("default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+        redirect("default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
     }
 }
 
 function delete_tab() {
-    global $d;
+    global $d, $type;
 
     if (isset($_GET['id'])) {
         $id = themdau($_GET['id']);
@@ -1083,16 +1084,16 @@ function delete_tab() {
         $d->setWhere('id', $id);
         $d->select();
         if ($d->num_rows() == 0)
-            transfer("Dữ liệu không có thực", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+            transfer("Dữ liệu không có thực", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
         $row = $d->fetch_array();
         delete_file(_upload_product . $row['tab']);
         delete_file(_upload_product . $row['thumb']);
         if ($d->delete())
-            redirect("default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+            redirect("default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
         else
-            transfer("Xóa dữ liệu bị lỗi", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+            transfer("Xóa dữ liệu bị lỗi", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
     } else
-        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&idc=" . $_REQUEST['idc'] . "");
+        transfer("Không nhận được dữ liệu", "default.php?com=product&act=man_tab&type=".$type."&idc=" . $_REQUEST['idc'] . "");
 }
 //Quản trị màu sắc sản phẩm
 function get_colors() {

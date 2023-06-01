@@ -1,7 +1,7 @@
 <div class="control_frm" style="margin-top:25px;">
     <div class="bc">
         <ul id="breadcrumbs" class="breadcrumbs">
-        	<li><a href="default.php?com=product&act=man_tab&idc=<?=$_REQUEST["idc"]?>"><span>Nội dung dự án</span></a></li>
+        	<li><a href="default.php?com=product&act=man_tab&type=<?=$_REQUEST["type"]?>&idc=<?=$_REQUEST["idc"]?>"><span>Nội dung dự án</span></a></li>
             <li class="current"><a href="#" onclick="return false;">Tất cả</a></li>
         </ul>
         <div class="clear"></div>
@@ -10,7 +10,7 @@
 <form name="f" id="f" method="post">
 <div class="control_frm" style="margin-top:0;">
   	<div style="float:left;">
-    	<input type="button" class="blueB" value="Thêm" onclick="location.href='default.php?com=product&act=add_tab&idc=<?=$_REQUEST["idc"]?>'" />
+    	<input type="button" class="blueB" value="Thêm" onclick="location.href='default.php?com=product&act=add_tab&type=<?=$_REQUEST["type"]?>&idc=<?=$_REQUEST["idc"]?>'" />
        
     </div>   
 </div>
@@ -45,7 +45,7 @@
 					<div id="ajaxloader"><img class="numloader" id="ajaxloader<?=$items[$i]['id']?>" src="images/loader.gif" alt="loader" /></div>
 				</td> 
 				<td class="title_name_data">
-					<a href="default.php?com=product&act=edit_tab&idc=<?=$_REQUEST["idc"]?>" class="tipS SC_bold">
+					<a href="default.php?com=product&act=edit_tab&type=<?=$_REQUEST["type"]?>&idc=<?=$_REQUEST["idc"]?>" class="tipS SC_bold">
 						<?=$items[$i]["ten_vi"]?>
 					</a>
 				</td>
@@ -53,8 +53,8 @@
 					<input type="checkbox" data-com="hienthi" data-table="product_tab" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['hienthi']==1) echo "checked";?> name="hienthi" value="<?=$items[$i]['id']?>" class="check_box" />
 				</td>
 				<td class="actBtns">
-					<a href="default.php?com=product&act=edit_tab&id=<?=$items[$i]["id"]?>&idc=<?=$_REQUEST["idc"]?>" title="" class="smallButton tipS" original-title="Sửa dự án"><img src="./images/icons/dark/pencil.png" alt=""></a>
-					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_tab&id=<?=$items[$i]['id']?>&idc=<?=$_REQUEST['idc']?>'); return false;" title="" class="smallButton tipS" original-title="Xóa dự án"><img src="./images/icons/dark/close.png" alt=""></a>
+					<a href="default.php?com=product&act=edit_tab&type=<?=$_REQUEST["type"]?>&id=<?=$items[$i]["id"]?>&idc=<?=$_REQUEST["idc"]?>" title="" class="smallButton tipS" original-title="Sửa dự án"><img src="./images/icons/dark/pencil.png" alt=""></a>
+					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_tab&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&idc=<?=$_REQUEST['idc']?>'); return false;" title="" class="smallButton tipS" original-title="Xóa dự án"><img src="./images/icons/dark/close.png" alt=""></a>
 				</td>
 			</tr>
 			<?php } ?>

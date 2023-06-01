@@ -1,6 +1,5 @@
-<div style="padding-top:40px" class="breadcrumb-arrow"><?=$breakcrumb?></div>
 <div class="container">
-	<div class="font-weight-bold text-capitalize tcon-td"><?= $tintuc_detail['ten'] ?></div>
+	<div class="font-weight-bold text-capitalize brand-title"><?= $tintuc_detail['ten'] ?></div>
 	<div class="mb-5 tcon-content"><?=$tintuc_detail["noidung"]?></div>
 	<div class="brand-title">Các bài viết khác</div>
 	<div class="slick-cook2">

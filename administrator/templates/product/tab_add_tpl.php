@@ -43,7 +43,7 @@
 	}
 	
 </script>
-<form name="supplier" id="validate" class="form" action="default.php?com=product&act=save_tab&idc=<?=$_REQUEST["idc"]?>&curPage=<?=$_REQUEST['curPage']?>" method="post" enctype="multipart/form-data">
+<form name="supplier" id="validate" class="form" action="default.php?com=product&act=save_tab&type=<?=$_REQUEST["type"]?>&idc=<?=$_REQUEST["idc"]?>&curPage=<?=$_REQUEST['curPage']?>" method="post" enctype="multipart/form-data">
 	<div class="widget">
 		<div class="title"><img src="./images/icons/dark/record.png" alt="" class="titleIcon" />
             <h6>Nhập dữ liệu</h6>

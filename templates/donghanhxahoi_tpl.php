@@ -15,46 +15,10 @@ $d->query($sql);
 $video=$d->result_array();
 ?>
 <link rel="stylesheet" type="text/css" href="assets/css/popup.css"/>
-<div><img src="<?=_upload_hinhanh_l.$banner_sp['photo']?>" alt="banner" class="img-fluid img-100"></div>
-<div class="breadcrumb-arrow"><?=$breakcrumb?></div>
+
+
 <div class="container">
-	<h3 class="mb-3 text-center text-uppercase brand-title"><?=$title_tcat?></h3>
-	<div class="dhxh-vid-contain">
-		<div class="vid-item1">
-			<div class="video">
-				<div class="images mb-3">
-					<a class="xem_video" href="<?= getYoutubeIdFromUrl($video[0]['h3']) ?>">
-						<img class="img-fluid video-img" style="border:solid 1px #ccc" src="http://img.youtube.com/vi/<?= getYoutubeIdFromUrl($video[0]['h3']) ?>/0.jpg" alt="<?= $video[0]['ten'] ?>">
-					</a>      
-				</div>
-				<div class="name font-weight-bold text-center"><?= $video[0]['ten'] ?></div>
-				<div style="padding: 10px;"><?= $video[0]['mota'] ?></div>
-			</div>
-		</div>
-		<div class="vid-item2">
-			<div class="video">     
-				<div class="images mb-3">
-					<a class="xem_video" href="<?= getYoutubeIdFromUrl($video[1]['h3']) ?>">
-						<img class="img-fluid video-img" style="border:solid 1px #ccc" src="http://img.youtube.com/vi/<?= getYoutubeIdFromUrl($video[1]['h3']) ?>/0.jpg" alt="<?= $video[1]['ten'] ?>">
-					</a>      
-				</div>
-				<div class="name font-weight-bold text-center"><?= $video[1]['ten'] ?></div>
-				<div style="padding: 10px;"><?= $video[1]['mota'] ?></div>
-			</div>
-		</div>
-		<div class="vid-item3">
-			<div class="video">     
-				<div class="images mb-3">
-					<a class="xem_video" href="<?= getYoutubeIdFromUrl($video[2]['h3']) ?>">
-						<img class="img-fluid video-img" style="border:solid 1px #ccc" src="http://img.youtube.com/vi/<?= getYoutubeIdFromUrl($video[2]['h3']) ?>/0.jpg" alt="<?= $video[2]['ten'] ?>">
-					</a>      
-				</div>
-				<div class="name font-weight-bold text-center"><?= $video[2]['ten'] ?></div>
-				<div style="padding: 10px;"><?= $video[2]['mota'] ?></div>
-			</div>
-		</div>
-	</div>
-	<h3 class="mb-3 text-center text-uppercase brand-title">Truyền thông</h3>
+	<h3 class="mb-3 mt-3 text-center text-uppercase brand-title"><?=$title_tcat?></h3>
 	<div class="content">   
 		<?php foreach($tintuc as $v){?>
 		<div class="d-lg-flex d-md-flex d-sm-flex justify-content-between mb-4 ttuc-box">
@@ -74,4 +38,5 @@ $video=$d->result_array();
 		<?php }?>
 		<div class="pagination"><div class="phantrang" ><?= $paging['paging'] ?></div></div>
 	</div>
+
 </div>

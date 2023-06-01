@@ -86,11 +86,11 @@
 		</ul>
 		<div id="info" class="tab_content">
 			<input type="hidden" name="id" id="id_this_product" value="<?=@$item['id']?>" />
-            <?php if($_GET["subcat"]>1){?>
-			<div class="formRow">
-				<?= get_main_list(); ?>
-				<div class="clear"></div>
-			</div>
+            <?php if($_GET["subcat"]>1 && $_REQUEST["type"] != 'giao-trinh'){?>
+				<div class="formRow">
+					<?= get_main_list(); ?>
+					<div class="clear"></div>
+				</div>
 			<?php }?>
 
 

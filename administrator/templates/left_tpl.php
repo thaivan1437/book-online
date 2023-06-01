@@ -46,16 +46,28 @@
 			<li><a href="default.php?com=product&act=man&type=video-khoa-hoc">Quản lý video</a></li>
 		</ul>
 	</li>
-	<li class="categories_li <?php if(($_GET["com"]=='about' && $_GET['type']=='faq') || ($_GET["com"]=='about' && $_GET['type']=='giang-vien-danh-gia') || ($_GET["com"]=='about' && $_GET['type']=='tay-nghe') || ($_GET["com"]=='about' && $_GET['type']=='book') || $_GET['type']=='bo-sach' ) echo "activemenu";?>" id="menu_td"><a href="" title="" class="exp"><span>Giáo trình</span><strong></strong></a>
+	<li class="categories_li <?php if(($_GET["com"]=='product' && $_GET["type"]=="giao-trinh") || ($_GET["com"]=='product' && $_GET['type']=='tay-nghe') || ($_GET["com"]=='time' && $_GET['type']=='sp-gt') || ($_GET["com"]=='about' && $_GET['type']=='faq') || ($_GET["com"]=='about' && $_GET['type']=='giang-vien-danh-gia')) echo "activemenu";?>" id="menu_sp3"><a href="" title="" class="exp"><span>Giáo trình</span><strong></strong></a>
+		<ul class="sub">
+			<!-- <li><a href="default.php?com=time&act=capnhat&type=giao-trinh">Đoạn giới thiệu trang chủ</a></li> -->
+			<!-- <li><a href="default.php?com=about&act=man&type=thuong-hieu">Quản lý hình logo thương hiệu</a></li> -->
+			<!-- <li><a href="default.php?com=time&act=capnhat&type=banner-sp">Banner trang danh mục sản phẩm</a></li> -->
+			<li><a href="default.php?com=product&act=man_list&subcat=2&type=giao-trinh">Quản lý danh mục cấp 2</a></li>
+			<?php /* for($i=1;$i<=$config['subcat'];$i++){?>
+			<li><a href="default.php?com=product&act=man_list&subcat=<?=$i?>&type=giao-trinh">Quản lý danh mục cấp <?=$i?></a></li>
+			<?php } */?>
+			<li><a href="default.php?com=product&act=man&type=giao-trinh">Quản lý giáo trình</a></li>
+			<li><a href="default.php?com=about&act=man&type=giang-vien-danh-gia">Quản lý giảng viên và học viên đánh giá</a></li>
+			<li><a href="default.php?com=about&act=man&type=faq">Quản lý faq</a></li>
+		</ul>
+	</li>
+	
+	<!-- <li class="categories_li <?php if(($_GET["com"]=='about' && $_GET['type']=='faq') || ($_GET["com"]=='about' && $_GET['type']=='giang-vien-danh-gia') || ($_GET["com"]=='about' && $_GET['type']=='tay-nghe') || ($_GET["com"]=='about' && $_GET['type']=='book') || $_GET['type']=='bo-sach' ) echo "activemenu";?>" id="menu_td"><a href="" title="" class="exp"><span>Giáo trình</span><strong></strong></a>
 		<ul class="sub">
 			<li><a href="default.php?com=about&act=man&type=bo-sach">Quản lý bộ sách</a></li>
 			<li><a href="default.php?com=about&act=man&type=tay-nghe">Quản lý hình tay nghề</a></li>
 			<li><a href="default.php?com=about&act=man&type=book">Quản lý sách giành cho ai</a></li>
-			<li><a href="default.php?com=about&act=man&type=giang-vien-danh-gia">Quản lý giảng viên và học viên đánh giá</a></li>
-			<li><a href="default.php?com=about&act=man&type=faq">Quản lý faq</a></li>
-			
 		</ul>
-	</li>
+	</li> -->
 
 	<li class="categories_li <?php if($_GET["com"]=='order' || ($_GET["com"]=='about' && $_GET['type']=='thanh-toan')) echo "activemenu";?>" id="menu_sp9"><a href="" title="" class="exp"><span>Đơn hàng</span><strong></strong></a>
 		<ul class="sub">			
@@ -86,13 +98,12 @@
 			<li><a href="default.php?com=news&act=man&type=doanh-nhan-vao-bep">Quản lý bài viết</a></li>
 		</ul>
 	</li> -->
-	<!-- <li class="categories_li <?php if(($_GET["com"]=='about' && $_GET['type']=='tin-tuc-su-kien') || ($_GET["com"]=='video') || ($_GET["com"]=='time' && $_GET['type']=='dhxh-bn') || ($_GET["com"]=='about' && $_GET['type']=='dhxh-video') ) echo "activemenu";?>" id="menu_dhcxh"><a href="" title="" class="exp"><span>Tin tức & Sự kiện</span><strong></strong></a>
+	<li class="categories_li <?php if(($_GET["com"]=='about' && $_GET['type']=='ho-tro-khach-hang') || ($_GET["com"]=='video') || ($_GET["com"]=='time' && $_GET['type']=='dhxh-bn') || ($_GET["com"]=='about' && $_GET['type']=='thong-tin-hop-tac') ) echo "activemenu";?>" id="menu_dhcxh"><a href="" title="" class="exp"><span>Quản lý bài viết</span><strong></strong></a>
 		<ul class="sub">
-			<li><a href="default.php?com=time&act=capnhat&type=dhxh-bn">Banner</a></li>
-			<li><a href="default.php?com=about&act=man&type=tin-tuc-su-kien">Quản lý bài viết</a></li>
-			<li><a href="default.php?com=about&act=man&type=dhxh-video">Quản lý video</a></li>
+			<li><a href="default.php?com=about&act=man&type=ho-tro-khach-hang">Hỗ trợ khách hàng</a></li>
+			<li><a href="default.php?com=about&act=man&type=thong-tin-hop-tac">Thông tin hợp tác</a></li>
 		</ul>
-	</li> -->
+	</li>
 	
 	<li class="categories_li <?php if($_GET["com"]=='bannerqc' || $_GET["com"]=='slider' ) echo "activemenu";?>" id="menu_sl"><a href="" title="" class="exp"><span>Logo - Slider</span><strong></strong></a>
 		<ul class="sub">

@@ -80,32 +80,37 @@
 		</div>
 	</div>
 </div>
-<div class="main-bg2 bookstore3">
-	<div class="container">
-		<div class="ziczac-box">
-			<div class="ziczac-left">
-				<img src="<?=_upload_product_l.$rs_book[0]["photo"]?>" alt="dep" class="img-100" />
-			</div>
-			<div class="ziczac-right">
-				<div class="ziczac-title kh-detail-zic-tit"><?=$rs_book[0]["ten"]?></div>
-				<div class="ziczac-desc kh-detail-zic-desc">
-					<?=$rs_book[0]["noidung"]?>
+
+<?php if (!empty($rs_book)) {?>
+    <div class="main-bg2 bookstore3">
+		<div class="container">
+			<div class="ziczac-box">
+				<div class="ziczac-left">
+					<img src="<?=_upload_product_l.$rs_book[0]["photo"]?>" alt="dep" class="img-100" />
+				</div>
+				<div class="ziczac-right">
+					<div class="ziczac-title kh-detail-zic-tit"><?=$rs_book[0]["ten"]?></div>
+					<div class="ziczac-desc kh-detail-zic-desc">
+						<?=$rs_book[0]["noidung"]?>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="ziczac-box">
-			<div class="ziczac-right">
-				<div class="ziczac-title kh-detail-zic-tit"><?=$rs_book[1]["ten"]?></div>
-				<div class="ziczac-desc kh-detail-zic-desc">
-					<?=$rs_book[1]["noidung"]?>
+			<div class="ziczac-box">
+				<div class="ziczac-right">
+					<div class="ziczac-title kh-detail-zic-tit"><?=$rs_book[1]["ten"]?></div>
+					<div class="ziczac-desc kh-detail-zic-desc">
+						<?=$rs_book[1]["noidung"]?>
+					</div>
 				</div>
-			</div>
-			<div class="ziczac-left">
-				<img src="<?=_upload_product_l.$rs_book[1]["photo"]?>" alt="dep" class="img-100" />
+				<div class="ziczac-left">
+					<img src="<?=_upload_product_l.$rs_book[1]["photo"]?>" alt="dep" class="img-100" />
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php } ?>
+
+
 <div class="bookstore2">
 	<div class="container">
 		<div class="main-title2">Nội dung khóa học</div>

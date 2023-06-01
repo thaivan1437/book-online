@@ -1,6 +1,8 @@
 <?php 
 	$d->query("select id,ten_vi,id_parent,com from #_product_list order by stt asc");
 	$list = $d->result_array();
+
+	$subcat = $_REQUEST["subcat"];
 ?>
 <?php 
 	function generateRandomString($length = 10) {
@@ -98,7 +100,12 @@
 				<td class="sortCol"><div>Tên sản phẩm<span></span></div></td>
 				<td class="tb_data_small">Ẩn/Hiện</td>
 				<td class="tb_data_small">Nổi bật</td>
-				<td width="100">Sách cho ai</td>
+				<?php if ($subcat == 2) { ?>
+					<td width="100">Sách cho ai</td>
+				<?php } ?>
+				<?php if ($_REQUEST["type"] == "giao-trinh" && $subcat == 2) { ?>
+					<td width="100">Tay nghề</td>
+				<?php } ?>
 				<td width="100">Thao tác</td>
 			</tr>
 		</thead>
@@ -131,9 +138,16 @@
 				<td align="center">
 					<input type="checkbox" data-com="noibat" data-table="product_list" data-id="<?=$items[$i]['id']?>" <?php if($items[$i]['noibat']==1) echo "checked";?> name="noibat" value="<?=$items[$i]['id']?>" class="check_box" />
 				</td>
-				<td align="center">
-					<a href="default.php?com=product&act=man_tab&idc=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
-				</td>
+				<?php if ($subcat == 2) { ?>
+					<td align="center">
+						<a href="default.php?com=product&act=man_tab&idc=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
+					</td>
+				<?php } ?>
+				<?php if ($_REQUEST["type"] == "giao-trinh" && $subcat == 2) { ?>
+					<td align="center">
+						<a href="default.php?com=product&act=man_tab&idc=<?=$items[$i]['id']?>&type=tay-nghe&subcat=<?=$_REQUEST["subcat"]?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
+					</td>
+				<?php } ?>
 				<td class="actBtns">
 					<a href="default.php?com=product&act=edit_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST["type"]?>&subcat=<?=$_REQUEST["subcat"]?>&id_list=<?= $items[$i]['id_parent'] ?>&id_parent=<?=$items[$i]["set_level"]?>&id_gv=<?= $items[$i]['id_giangvien'] ?>" title="" class="smallButton tipS" original-title="Sửa sản phẩm"><img src="./images/icons/dark/pencil.png" alt=""></a>
 					<a href="" onclick="CheckDelete('default.php?com=product&act=delete_list&id=<?=$items[$i]['id']?>&type=<?=$_REQUEST['type']?>&subcat=<?=$_REQUEST['subcat']?>'); return false;" title="" class="smallButton tipS" original-title="Xóa sản phẩm"><img src="./images/icons/dark/close.png" alt=""></a>

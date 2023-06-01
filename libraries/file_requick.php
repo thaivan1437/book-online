@@ -32,10 +32,11 @@ switch ($com) {
         $template = "index";
         break;
     case 'giao-trinh':
-        $source = "giaotrinh";
+        $source = "product";
         $title_bar = "Giáo trình";
 		$title_tcat = "Giáo trình";
-        $template = "book";
+        $type='giao-trinh';
+        $template = isset($_GET['idc']) ? "book" : "video_khoa_hoc";
         break;
     
     case 'gio-hang':
@@ -67,14 +68,23 @@ switch ($com) {
 		$title_tcat = "Chúng tôi là ai";
         $template = isset($_GET['id']) ? "about_detail" : "about";
         break;
-	case 'tin-tuc-su-kien':
+	case 'ho-tro-khach-hang':
         $source = "amthuc";
 		$table="about";
-		$type='tin-tuc-su-kien';
-		$title_bar = 'Tin tức & Sự kiện';
-		$title_tcat = 'Tin tức & Sự kiện';
+		$type='ho-tro-khach-hang';
+		$title_bar = 'Hỗ trợ khách hàng';
+		$title_tcat = 'Hỗ trợ khách hàng';
         $template = isset($_GET['id']) ? "news_detail" : "donghanhxahoi";
         break;
+    case 'thong-tin-hop-tac':
+        $source = "amthuc";
+		$table="about";
+		$type='thong-tin-hop-tac';
+		$title_bar = 'Thông tin hợp tác';
+		$title_tcat = 'Thông tin hợp tác';
+        $template = isset($_GET['id']) ? "news_detail" : "donghanhxahoi";
+        break;
+
     case 'phat-trien-cung-bsa':
         $source = "amthuc";
         $table="about";
@@ -89,7 +99,7 @@ switch ($com) {
         $type='su-kien';
         $title_bar = 'Sự kiện';
         $title_tcat = 'Sự kiện';
-        $template = isset($_GET['id']) ? "news_detail" : "event";
+        $template = isset($_GET['id']) ? "news_detail" : "news";
         break;
     case 'doanh-nhan-vao-bep':
         $source = "news";

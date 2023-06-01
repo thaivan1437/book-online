@@ -120,64 +120,67 @@
         </div>
     </div>
 </div>
-<div class="bookstore2">
-    <div class="container">
-		<div class="ziczac-box">
-			<div class="ziczac-left">
-				<img src="<?=_upload_tintuc_l.$rs_book[0]["photo"]?>" alt="dep" class="img-100" />
-			</div>
-			<div class="ziczac-right">
-				<div class="ziczac-title"><?=$rs_book[0]["ten"]?></div>
-				<div class="ziczac-desc">
-					<?=$rs_book[0]["mota"]?>
-				</div>
-			</div>
-		</div>
-		<div class="ziczac-box">
-			<div class="ziczac-right">
-				<div class="ziczac-title"><?=$rs_book[1]["ten"]?></div>
-				<div class="ziczac-desc">
-					<?=$rs_book[1]["mota"]?>
-				</div>
-			</div>
-			<div class="ziczac-left">
-				<img src="<?=_upload_tintuc_l.$rs_book[1]["photo"]?>" alt="dep" class="img-100" />
-			</div>
-		</div>
-        <!-- <div class="ziczac-box">
-            <div class="ziczac-left">
-                <img src="assets/images/h1.jpg" alt="dep" class="img-100">
-            </div>
-            <div class="ziczac-right">
-                <div class="ziczac-title">Sách này dành cho ai ?</div>
-                <div class="ziczac-desc">
-                    <p>- Ai là người phù hợp với khóa học này</p>
-                    <p>- Học viên đã học nhưng cần được ôn lại lý thuyết và thực hành một cách bài bản, hiệu quả và an toàn</p>
-                    <p>- Khách hàng có nhu cầu tiêm filler muốn hiểu thêm về quy trình trước khi thực hiện</p>
-                    <p>- Các bạn kỹ thuật viên muốn chuẩn hóa kiến thức về filler và botox một cách bài bản và chuẩn y khoa</p>
-                    <p>- Các chủ spa học để quản lý và để hiểu biết về các sản phẩm filler botox một cách bài bản và an toàn</p>
-                    <p>- Sinh viên và các bạn khác mong muốn học nghề và kiến thức chuẩn về filler và botox</p>
-                    <p>- Các bạn muốn học một cách bài bản về filler và botox nhưng không có nhiều thời gian đi học</p>
+<?php if (!empty($rs_book)) {?>
+    <div class="bookstore2">
+        <div class="container">
+            <div class="ziczac-box">
+                <div class="ziczac-left">
+                    <img src="<?=_upload_tintuc_l.$rs_book[0]["photo"]?>" alt="dep" class="img-100" />
+                </div>
+                <div class="ziczac-right">
+                    <div class="ziczac-title"><?=$rs_book[0]["ten"]?></div>
+                    <div class="ziczac-desc">
+                        <?=$rs_book[0]["mota"]?>
+                    </div>
                 </div>
             </div>
+            <div class="ziczac-box">
+                <div class="ziczac-right">
+                    <div class="ziczac-title"><?=$rs_book[1]["ten"]?></div>
+                    <div class="ziczac-desc">
+                        <?=$rs_book[1]["mota"]?>
+                    </div>
+                </div>
+                <div class="ziczac-left">
+                    <img src="<?=_upload_tintuc_l.$rs_book[1]["photo"]?>" alt="dep" class="img-100" />
+                </div>
+            </div>
+            <!-- <div class="ziczac-box">
+                <div class="ziczac-left">
+                    <img src="assets/images/h1.jpg" alt="dep" class="img-100">
+                </div>
+                <div class="ziczac-right">
+                    <div class="ziczac-title">Sách này dành cho ai ?</div>
+                    <div class="ziczac-desc">
+                        <p>- Ai là người phù hợp với khóa học này</p>
+                        <p>- Học viên đã học nhưng cần được ôn lại lý thuyết và thực hành một cách bài bản, hiệu quả và an toàn</p>
+                        <p>- Khách hàng có nhu cầu tiêm filler muốn hiểu thêm về quy trình trước khi thực hiện</p>
+                        <p>- Các bạn kỹ thuật viên muốn chuẩn hóa kiến thức về filler và botox một cách bài bản và chuẩn y khoa</p>
+                        <p>- Các chủ spa học để quản lý và để hiểu biết về các sản phẩm filler botox một cách bài bản và an toàn</p>
+                        <p>- Sinh viên và các bạn khác mong muốn học nghề và kiến thức chuẩn về filler và botox</p>
+                        <p>- Các bạn muốn học một cách bài bản về filler và botox nhưng không có nhiều thời gian đi học</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ziczac-box">
+                <div class="ziczac-right">
+                    <div class="ziczac-title">Bạn sẽ học được gì từ sách giáo trình này ?</div>
+                    <div class="ziczac-desc">
+                        <p>- Khách hàng có nhu cầu tiêm filler muốn hiểu thêm về quy trình trước khi thực hiện</p>
+                        <p>- Các bạn kỹ thuật viên muốn chuẩn hóa kiến thức về filler và botox một cách bài bản và chuẩn y khoa</p>
+                        <p>- Các chủ spa học để quản lý và để hiểu biết về các sản phẩm filler botox một cách bài bản và an toàn</p>
+                        <p>- Sinh viên và các bạn khác mong muốn học nghề và kiến thức chuẩn về filler và botox</p>
+                        <p>- Các bạn muốn học một cách bài bản về filler và botox nhưng không có nhiều thời gian đi học</p>
+                    </div>
+                </div>
+                <div class="ziczac-left">
+                    <img src="assets/images/h2.jpg" alt="dep" class="img-100">
+                </div>
+            </div> -->
         </div>
-        <div class="ziczac-box">
-            <div class="ziczac-right">
-                <div class="ziczac-title">Bạn sẽ học được gì từ sách giáo trình này ?</div>
-                <div class="ziczac-desc">
-                    <p>- Khách hàng có nhu cầu tiêm filler muốn hiểu thêm về quy trình trước khi thực hiện</p>
-                    <p>- Các bạn kỹ thuật viên muốn chuẩn hóa kiến thức về filler và botox một cách bài bản và chuẩn y khoa</p>
-                    <p>- Các chủ spa học để quản lý và để hiểu biết về các sản phẩm filler botox một cách bài bản và an toàn</p>
-                    <p>- Sinh viên và các bạn khác mong muốn học nghề và kiến thức chuẩn về filler và botox</p>
-                    <p>- Các bạn muốn học một cách bài bản về filler và botox nhưng không có nhiều thời gian đi học</p>
-                </div>
-            </div>
-            <div class="ziczac-left">
-                <img src="assets/images/h2.jpg" alt="dep" class="img-100">
-            </div>
-        </div> -->
-	</div>
-</div>
+    </div>
+<?php } ?>
+
 <div class="main-bg2 bookstore3">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-between">

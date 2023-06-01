@@ -660,7 +660,7 @@ a, a:hover {
 /* footer */
 .footer {
   background: url(../images/bg1.jpg) no-repeat;
-  background-size: 100% auto;
+  background-size: cover;
   padding: 50px 0;
   color: white;
 }
